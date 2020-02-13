@@ -1,0 +1,30 @@
+﻿<Window x:Class="initView.Properties.funcSelectForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:initView.Properties"
+        mc:Ignorable="d"
+        Title="功能主界面" Height="450" Width="579.2" Loaded="LodaDate">
+    <Grid>
+        <Button x:Name="borrowComponent" Content="记账借用" HorizontalAlignment="Left" Margin="36,318,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="borrow_Click"/>
+        <Button x:Name="clearButoon" Content="结算账单" HorizontalAlignment="Left" Margin="151,318,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="clearBill_Click"/>
+        <Button x:Name="programeButton" Content="项目录入" HorizontalAlignment="Left" Margin="269,318,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="programe_Click"/>
+        
+        <Button x:Name="adviseButton" Content="意见反馈" HorizontalAlignment="Left" Margin="476,15,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="advise_Click"/>
+        <Button x:Name="exitButton" Content="完全退出" HorizontalAlignment="Left" Margin="440,385,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="exit_Click"/>
+        <DataGrid x:Name="dataGridView" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="195" Margin="36,80,0,0" VerticalAlignment="Top" Width="431"/>
+        <!--
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" 编号" Width="40" Binding="{Binding mID}"/>
+                <DataGridTextColumn Header="     物品名称" Width="100" Binding="{Binding mName}"/>
+                <DataGridTextColumn Header="   物品参数" Width="80" Binding="{Binding mParam}"/>
+                <DataGridTextColumn Header=" 数量" Width="40" Binding="{Binding mNum}"/>
+                <DataGridTextColumn Header="    登记人" Width="70" Binding="{Binding uName}"/>
+                <DataGridTextColumn Header="       登记时间" Width="100" Binding="{Binding mBorrowTime}"/>
+            </DataGrid.Columns>     -->
+
+        <Label x:Name="tip" Content="个人借用记录: " HorizontalAlignment="Left" Height="27" Margin="36,31,0,0" VerticalAlignment="Top" Width="211" FontWeight="Bold" FontSize="14"/>
+
+    </Grid>
+</Window>
