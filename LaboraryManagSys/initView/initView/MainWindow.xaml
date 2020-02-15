@@ -5,24 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:initView"
         mc:Ignorable="d"
-        Title="实验室信息管理系统" Height="450" Width="640" AllowsTransparency="True" WindowStyle="None">
+        Title="实验室信息管理系统" Height="410" Width="660" AllowsTransparency="True" WindowStyle="None">
 
-    <Grid x:Name="gridRoot">
+    <Grid x:Name="gridRoot" Margin="0,0,4.8,4.8">
         <Label x:Name="usernameL" Content="用 户 名：" HorizontalAlignment="Left" Height="35" Margin="138,113,0,0" VerticalAlignment="Top" Width="60"/>
         <Label x:Name="passwordL" Content="密     码：" HorizontalAlignment="Left" Height="35" Margin="138,163,0,0" VerticalAlignment="Top" Width="60"/>
         <Label x:Name="verifycodeL" Content="验 证 码：" HorizontalAlignment="Left" Height="35" Margin="138,213,0,0" VerticalAlignment="Top" Width="60"/>
 
-        <TextBox x:Name="uIdTextBox" HorizontalAlignment="Left" Height="30" Margin="209,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
-        <TextBox x:Name="uPasstextBox" HorizontalAlignment="Left" Height="30" Margin="209,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
-        <TextBox x:Name="verifyCode" HorizontalAlignment="Left" Height="30" Margin="209,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" />
+        <TextBox x:Name="uIdTextBox" Text="请输入学号/手机号" HorizontalAlignment="Left" Height="30" Margin="209,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Foreground="#FF9D4141" GotFocus="UIdTextBox_GotFocus"/>
+        <TextBox x:Name="uPasstextBox" HorizontalAlignment="Left" Height="30" Margin="209,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Foreground="#FF9D4141"/>
+        <TextBox x:Name="verifyCode" HorizontalAlignment="Left" Height="30" Margin="209,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Foreground="#FF9D4141" />
+        <Button x:Name="loginButton" Content="登陆" HorizontalAlignment="Left" Margin="139,280,0,0" VerticalAlignment="Top" Width="181" Height="30" Click="login_Click"/>
 
-        <Button x:Name="loginButton" Content="登陆" HorizontalAlignment="Left" Margin="138,298,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="login_Click"/>
-        <Button x:Name="registeButton" Content="注册" HorizontalAlignment="Left" Margin="294,298,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="registe_Click"/>
-
-        <Label x:Name="忘记密码" Content="忘记密码" HorizontalAlignment="Left" Margin="311,248,0,0" VerticalAlignment="Top"/>
-        
         <Image x:Name="verifyImageCode" HorizontalAlignment="Left" Height="40" Margin="284,208,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="exitButton" Content="完全退出" HorizontalAlignment="Left" Margin="410,360,0,0" VerticalAlignment="Top" Width="70" Height="30" Click="exit_Click"/>
+        <Grid HorizontalAlignment="Left" Height="175" Margin="442,95,0,0" VerticalAlignment="Top" Width="180">
+            <Image x:Name="qqCode_jpg" Margin="2,0,18,0" Source="qqCode.jpg" Stretch="Fill"/>
+        </Grid>
+        <Label x:Name="扫一扫QRCode" Content="扫一扫下载科技创新实验室客户端" HorizontalAlignment="Left" Margin="435,284,0,0" VerticalAlignment="Top"/>
 
+        <TextBlock x:Name="注册textBlock" Text="注册账户" HorizontalAlignment="Left" Margin="330,288,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" TextDecorations="{x:Null}" FontWeight="Bold" Foreground="#FFE42886" RenderTransformOrigin="0.008,0.342" MouseDown="注册textBlock_MouseDown" MouseMove="注册textBlock_MouseMove" MouseLeave="注册textBlock_MouseLeave" Height="25" Width="50"/>
+        <TextBlock x:Name="忘密textBlock" Text="忘记密码" HorizontalAlignment="Left" Margin="325,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="blue" FontSize="10" MouseDown="忘密textBlock_MouseDown" MouseLeave="忘密textBlock_MouseLeave" MouseMove="忘密textBlock_MouseMove"/>
+        <TextBlock x:Name="看不清textBlock" Text="看不清" HorizontalAlignment="Left" Margin="251,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="blue" FontSize="10" MouseDown="看不清textBlock_MouseDown" MouseLeave="看不清textBlock_MouseLeave" MouseMove="看不清textBlock_MouseMove"/>
+        
+        <Button x:Name="exitButton" Content="完全退出" HorizontalAlignment="Left" Margin="440,355,0,0" VerticalAlignment="Top" Width="70" Height="30" Click="exit_Click"/>
     </Grid>
 </Window>

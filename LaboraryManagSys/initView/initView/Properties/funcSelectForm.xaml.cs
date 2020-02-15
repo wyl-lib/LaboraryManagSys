@@ -23,6 +23,7 @@ namespace initView.Properties
     public partial class funcSelectForm : Window
     {
         static borrowForm borrowForm;
+        static clearBill clearBill;
         static feedBack feedBack;
         static project proJect;
         public static DataSet getRecord { get; set; }
@@ -75,15 +76,22 @@ namespace initView.Properties
             DataSet billRecord = new DataSet();
             billRecord = DBTool.ExecuteQuery(uPayment);
             int count = billRecord.Tables[0].Rows.Count;
-            float mToltal=0;
+            float mToltal=0;//付款总计金额
+        
             for (int i = 0; i < count; i++)
             {
+                //num = float.Parse(billRecord.Tables[0].Rows[i][3].ToString());
                 mToltal += float.Parse(billRecord.Tables[0].Rows[i][3].ToString());
             }
             Console.WriteLine("mToltal: " + mToltal);
-            
+            string message = MessageBox.Show("总金额为"+mToltal+"请确认!","操作提示", MessageBoxButton.OKCancel, MessageBoxImage.Information).ToString().Trim();
+            if (message.Equals("Cancel"))
+            {
+                return;
+            }
             //Alipay Code
-
+            clearBill = new clearBill();
+            clearBill.Show();
 
             //
 

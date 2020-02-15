@@ -78,12 +78,23 @@ namespace initView
         private void login_Click(object sender, RoutedEventArgs e)
         {
             int uID = 0;
-            if (uIdTextBox.Text!="")
+            string uPhone = "";
+            if (uIdTextBox.Text != "")
             {
-                uID= int.Parse(uIdTextBox.Text);
+                if (uIdTextBox.Text.Length == 10)//学号
+                {
+                    uID = int.Parse(uIdTextBox.Text);
+                }
+                else//手机号
+                {
+                    uPhone = uIdTextBox.Text;
+                }
             }
-
-            string uPhone = uIdTextBox.Text;
+            else
+            {
+                MessageBox.Show("学号/手机号输入有误,请检查!");
+                return;
+            }            
             string uPass = uPasstextBox.Text;
             string uInfo = "select * from kc_user where uID='" + uID + "' or uPhone='" + uPhone + "' and uPass='" + uPass + "' ";
 
@@ -91,57 +102,48 @@ namespace initView
             selectForm = new funcSelectForm();
             //根据SQL执行后接受数据库DataSet返回值
             record = DBTool.ExecuteQuery(uInfo);
+            if (record == null && record.Tables.Count <= 0 && record.Tables[0].Rows.Count <= 0)
+            {
+                MessageBox.Show("用户名或密码有误,请检查!");
+                return;
+            }
 
-            //传递数据到
-            //多个窗体中，以便数据操作
+            //传递数据到多个窗体中，以便数据操作
             funcSelectForm.getRecord = record;
             borrowForm.getRecord = record;
             feedBack.getRecord = record;
 
             //验证码是否正确
-            string inputCode = verifyCode.Text.Trim().ToUpper();
+            string inputCode = verifyCode.Text.Trim().ToUpper();//大写
             Console.WriteLine("imageCode: " + imageCode);
             Console.WriteLine("inputCode: " + inputCode);
 
             //验证用户是否存在
-            if (record != null)
+ 
+            if (imageCode.Equals(inputCode))
             {
-                if (imageCode.Equals(inputCode))
-                {
-                    Console.WriteLine("record: " + record);
-                    string uName = record.Tables[0].Rows[0][2].ToString();
-                    MessageBox.Show("你好," + uName, "登录成功");
+                Console.WriteLine("record: " + record);
+                string uName = record.Tables[0].Rows[0][2].ToString();
+                MessageBox.Show("你好," + uName, "登录成功");
 
-                    //隐藏当前窗口
-                    this.ShowInTaskbar = false;
-                    this.Visibility = Visibility.Hidden;
+                //隐藏当前窗口
+                this.ShowInTaskbar = false;
+                this.Visibility = Visibility.Hidden;
 
-                    //打开主功能界面
-                    selectForm.Show();
-                }
-                else
-                {
-                    MessageBox.Show("verifyCode error", "提示");
-                    verifyCode.Clear();//Close the dialog directly
-                }
+                //打开主功能界面
+                selectForm.Show();
             }
             else
             {
-                MessageBox.Show("账号或密码不正确");
+                MessageBox.Show("验证码不正确!", "提示");
+                verifyCode.Clear();//Close the dialog directly
             }
-            //图片验证码部分
+            //刷新图片验证码
             ValidCode validCode;
             validCode = new ValidCode(4, ValidCode.CodeType.Alphas);
             verifyImageCode.Source = BitmapFrame.Create(validCode.CreateCheckCodeImage());
             imageCode = validCode.CheckCode.Trim().ToUpper();
 
-        }
-
-        private void registe_Click(object sender, RoutedEventArgs e)        //用户注册界面
-        {
-            //注册功能界面
-            registeFrom = new RegisteForm();
-            registeFrom.Show();
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)
@@ -154,6 +156,78 @@ namespace initView
             //完全退出
             this.Close();
             System.Environment.Exit(System.Environment.ExitCode);
+        }
+        private void 注册textBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //注册功能界面
+            registeFrom = new RegisteForm();
+            registeFrom.Show();
+        }
+
+        private void 注册textBlock_MouseMove(object sender, MouseEventArgs e)
+        {
+            注册textBlock.TextDecorations = TextDecorations.Underline;
+        }
+
+        private void 注册textBlock_MouseLeave(object sender, MouseEventArgs e)
+        {
+            注册textBlock.TextDecorations = null;
+        }
+
+        private void 忘密textBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void 忘密textBlock_MouseLeave(object sender, MouseEventArgs e)
+        {
+            忘密textBlock.TextDecorations = null;
+            忘密textBlock.FontWeight = FontWeights.Normal;
+        }
+
+        private void 忘密textBlock_MouseMove(object sender, MouseEventArgs e)
+        {
+            忘密textBlock.TextDecorations = TextDecorations.Underline;
+            忘密textBlock.FontWeight = FontWeights.Bold;
+        }
+
+        private void 看不清textBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //图片验证码部分
+            ValidCode validCode;
+            validCode = new ValidCode(4, ValidCode.CodeType.Alphas);
+            verifyImageCode.Source = BitmapFrame.Create(validCode.CreateCheckCodeImage());
+            imageCode = validCode.CheckCode.Trim().ToUpper();
+        }
+
+        private void 看不清textBlock_MouseLeave(object sender, MouseEventArgs e)
+        {
+            看不清textBlock.TextDecorations = null;
+            看不清textBlock.FontWeight = FontWeights.Normal;
+        }
+
+        private void 看不清textBlock_MouseMove(object sender, MouseEventArgs e)
+        {
+            看不清textBlock.TextDecorations = TextDecorations.Underline;
+            看不清textBlock.FontWeight = FontWeights.Bold;
+        }
+
+        private void UIdTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            string values = "请输入学号/手机号";
+
+            if (uIdTextBox.Text.Equals(""))
+            {
+                uIdTextBox.Text = "请输入学号/手机号";
+            }
+            if (values.Equals(uIdTextBox.Text))
+            {
+                uIdTextBox.Clear();
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

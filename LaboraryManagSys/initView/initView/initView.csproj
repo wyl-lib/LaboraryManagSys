@@ -172,6 +172,9 @@
   <ItemGroup>
     <Resource Include="Ali_QRcode.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="qqCode.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <SsdtUnitTestVersion>3.1</SsdtUnitTestVersion>
