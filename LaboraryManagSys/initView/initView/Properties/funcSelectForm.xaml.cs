@@ -77,7 +77,7 @@ namespace initView.Properties
             billRecord = DBTool.ExecuteQuery(uPayment);
             int count = billRecord.Tables[0].Rows.Count;
             float mToltal=0;//付款总计金额
-        
+            //float num = 0;
             for (int i = 0; i < count; i++)
             {
                 //num = float.Parse(billRecord.Tables[0].Rows[i][3].ToString());
@@ -92,8 +92,6 @@ namespace initView.Properties
             //Alipay Code
             clearBill = new clearBill();
             clearBill.Show();
-
-            //
 
         }
         private void advise_Click(object sender, RoutedEventArgs e)

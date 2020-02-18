@@ -102,9 +102,17 @@ namespace initView
             selectForm = new funcSelectForm();
             //根据SQL执行后接受数据库DataSet返回值
             record = DBTool.ExecuteQuery(uInfo);
-            if (record == null && record.Tables.Count <= 0 && record.Tables[0].Rows.Count <= 0)
+            try
             {
-                MessageBox.Show("用户名或密码有误,请检查!");
+                string uName = record.Tables[0].Rows[0][2].ToString();
+                if (record == null && record.Tables.Count <= 0 && record.Tables[0].Rows.Count <= 0)
+                {
+                    MessageBox.Show("用户名或密码有误,请检查!");
+                    return;
+                }
+            }
+            catch
+            {
                 return;
             }
 
@@ -228,6 +236,11 @@ namespace initView
             {
                 return;
             }
+        }
+
+        private void UPasstextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
