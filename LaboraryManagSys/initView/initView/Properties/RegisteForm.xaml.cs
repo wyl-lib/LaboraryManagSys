@@ -36,10 +36,10 @@ namespace initView.Properties
                 int uID = int.Parse(uIdTextBox.Text.Trim());
                 int uIdentityID = 2;
                 string uName = uNameTextBox.Text.Trim();
-                string uProClass = uPassWordTextBox.Text.Trim();
+                string uProClass = uPassWordTextBox.Password.Trim();
                 string uPhone = uPhoneTextBox.Text.Trim();
-                string uPass = uPassWordTextBox.Text.Trim();                //现在密码
-                string uPassBefore = uPassWordTextBox_Again.Text.Trim();   //曾用密码
+                string uPass = uPassWordTextBox.Password.Trim();                //现在密码
+                string uPassBefore = uPassWordTextBox_Again.Password.Trim();   //曾用密码
                 string uEmail = verifyEmailTextBox.Text.Trim();
                 string uIdCard = uIDCardTextBox.Text.Trim();
                 string uBankCard = uBankCardTextBox.Text.Trim();
@@ -118,12 +118,12 @@ namespace initView.Properties
                 return false;
             }
 
-            if (string.IsNullOrEmpty(this.uPassWordTextBox.Text.Trim()))
+            if (string.IsNullOrEmpty(this.uPassWordTextBox.Password.Trim()))
             {
                 MessageBox.Show("密码不能为空！");
                 return false;
             }
-            if (string.IsNullOrEmpty(this.uPassWordTextBox_Again.Text.Trim()))
+            if (string.IsNullOrEmpty(this.uPassWordTextBox_Again.Password.Trim()))
             {
                 MessageBox.Show("确认密码不正确！");
                 return false;
@@ -162,7 +162,7 @@ namespace initView.Properties
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
-        {            
+        {
             string message = MessageBox.Show("请再次确认!", "操作提示", MessageBoxButton.OKCancel, MessageBoxImage.Information).ToString().Trim();
             if (message.Equals("Cancel"))
             {
@@ -170,6 +170,52 @@ namespace initView.Properties
             }
             //关闭当前窗口
             this.Close();
+        }
+
+        private void UPassWordTextBox_Again_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if(uPassWordTextBox_Again.Password == uPassWordTextBox.Password)
+            {
+                textBlock.Text = "✔";
+            }
+            else
+            {
+                textBlock.Text = "✘";
+            }
+        }
+
+        private void SendEmailButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //1、校验邮箱非空  2、合法邮箱
+            string mailTo = this.verifyEmailTextBox.Text.Trim();
+            if (string.IsNullOrEmpty(mailTo))
+            {
+                MessageBox.Show("请确保邮箱的正确性!");
+            }
+            else
+            {
+                randomCode = random.Next().ToString().Substring(0, 6);
+                //发送验证码到用户邮箱
+                Console.WriteLine("随机验证码 randomCode: " + randomCode);
+                string uMesg = randomCode;
+                string MessageSubject = "科创实验室管理系统_随机验证码";
+                try
+                {
+                    DBUtil.btnEmailCode_Click(mailTo, uMesg, MessageSubject);
+
+                    MessageBox.Show("新用户邮箱验证码_发送成功");
+                }
+                catch
+                {
+                    return;
+                }
+            }
+        }
+
+        private void SendEmailButton_GotFocus(object sender, RoutedEventArgs e)
+        {
+            sendEmailButton.FontWeight = FontWeights.Bold;
+            sendEmailButton.TextDecorations = TextDecorations.Underline;
         }
     }
 }

@@ -10,7 +10,7 @@
 
         <Image x:Name="E_mail_jpg" Margin="0,0,-299.4,0.6" Source="/initView;component/E-mail.jpg" Stretch="Fill"/>
 
-        <TextBox x:Name="feedBackTextBox" HorizontalAlignment="Left" Height="245" Margin="130,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" VerticalContentAlignment="Top" FontFamily="Yu Gothic UI Light" Foreground="#DDFFFFFF" FontWeight="Bold" FontSize="16">
+        <TextBox x:Name="feedBackTextBox" AcceptsReturn="True" HorizontalAlignment="Left" Height="245" Margin="130,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" VerticalContentAlignment="Top" FontFamily="Yu Gothic UI Light" Foreground="#DDFFFFFF" FontWeight="Bold" FontSize="16">
             <TextBox.Background>
                 <ImageBrush/>
             </TextBox.Background>

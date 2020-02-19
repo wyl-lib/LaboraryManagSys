@@ -94,8 +94,9 @@ namespace initView
             {
                 MessageBox.Show("学号/手机号输入有误,请检查!");
                 return;
-            }            
-            string uPass = uPasstextBox.Text;
+            }
+            string uName = "";
+            string uPass = uPasstextBox.Password;
             string uInfo = "select * from kc_user where uID='" + uID + "' or uPhone='" + uPhone + "' and uPass='" + uPass + "' ";
 
             DataSet record = new DataSet();
@@ -104,7 +105,7 @@ namespace initView
             record = DBTool.ExecuteQuery(uInfo);
             try
             {
-                string uName = record.Tables[0].Rows[0][2].ToString();
+                 uName = record.Tables[0].Rows[0][2].ToString();
                 if (record == null && record.Tables.Count <= 0 && record.Tables[0].Rows.Count <= 0)
                 {
                     MessageBox.Show("用户名或密码有误,请检查!");
@@ -131,7 +132,6 @@ namespace initView
             if (imageCode.Equals(inputCode))
             {
                 Console.WriteLine("record: " + record);
-                string uName = record.Tables[0].Rows[0][2].ToString();
                 MessageBox.Show("你好," + uName, "登录成功");
 
                 //隐藏当前窗口

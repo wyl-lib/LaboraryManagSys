@@ -13,7 +13,7 @@
         <Label x:Name="verifycodeL" Content="验 证 码：" HorizontalAlignment="Left" Height="35" Margin="138,213,0,0" VerticalAlignment="Top" Width="60"/>
 
         <TextBox x:Name="uIdTextBox" Text="请输入学号/手机号" HorizontalAlignment="Left" Height="30" Margin="209,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Foreground="#FF9D4141" GotFocus="UIdTextBox_GotFocus"/>
-        <TextBox x:Name="uPasstextBox" HorizontalAlignment="Left" Height="30" Margin="209,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Foreground="#FF9D4141"/>
+        <PasswordBox x:Name="uPasstextBox" HorizontalAlignment="Left" Height="30" Width="160" Margin="209,165,0,0" VerticalAlignment="Top" Foreground="#FF9D4141" />
         <TextBox x:Name="verifyCode" HorizontalAlignment="Left" Height="30" Margin="209,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Foreground="#FF9D4141" />
         <Button x:Name="loginButton" Content="登陆" HorizontalAlignment="Left" Margin="139,280,0,0" VerticalAlignment="Top" Width="181" Height="30" Click="login_Click"/>
 
@@ -28,5 +28,6 @@
         <TextBlock x:Name="看不清textBlock" Text="看不清" HorizontalAlignment="Left" Margin="251,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="blue" FontSize="10" MouseDown="看不清textBlock_MouseDown" MouseLeave="看不清textBlock_MouseLeave" MouseMove="看不清textBlock_MouseMove"/>
         
         <Button x:Name="exitButton" Content="完全退出" HorizontalAlignment="Left" Margin="440,355,0,0" VerticalAlignment="Top" Width="70" Height="30" Click="exit_Click"/>
+        
     </Grid>
 </Window>

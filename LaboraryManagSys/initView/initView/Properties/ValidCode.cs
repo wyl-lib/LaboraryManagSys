@@ -187,16 +187,15 @@ namespace login
 
                     double dx = 0;
 
-                    dx = bXDir ? (PI2 * (double)j) / dBaseAxisLen : (PI2 * (double)i) / dBaseAxisLen;
+                    //PI字母数字旋转扭曲的程度减少; PI2程度加大
+                    dx = bXDir ? (PI * (double)j) / dBaseAxisLen : (PI * (double)i) / dBaseAxisLen;
 
                     dx += dPhase;
 
                     double dy = Math.Sin(dx);
 
 
-
                     // 取得当前点的颜色
-
                     int nOldX = 0, nOldY = 0;
 
                     nOldX = bXDir ? i + (int)(dy * dMultValue) : i;
