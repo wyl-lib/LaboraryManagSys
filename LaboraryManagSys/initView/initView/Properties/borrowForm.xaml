@@ -8,28 +8,28 @@
         Title="借用记录登记" Height="336.4" Width="520">
 
     <Grid Margin="0,0,-0.4,-0.2">
-        <Image x:Name="E_mail_jpg" Margin="100,-117,-1495,-118.4" Source="/initView;component/picturePath/billFish.jpg" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="1909">
+        <Image x:Name="E_mail_jpg" Margin="-2,0,-841,-78.4" Source="/initView;component/picturePath/registedGround.jpg" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="1357">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-89.83"/>
+                    <RotateTransform Angle="0"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Label x:Name="mNameL" Content="物品名称：" HorizontalAlignment="Left" Height="25" Margin="40,45,0,0" VerticalAlignment="Top" Width="65" Foreground="#DDFF0000"/>
-        <ComboBox x:Name="comBox_mName" HorizontalAlignment="Left" Margin="120,44,0,0" VerticalAlignment="Top" Width="110" Height="25" LostFocus="ComBox_mName_LostFocus" />
+        <Label x:Name="mNameL" Content="物品名称：" HorizontalAlignment="Left" Height="25" Margin="35,39,0,0" VerticalAlignment="Top" Width="65" Foreground="#DDFFFF92"/>
+        <ComboBox x:Name="comBox_mName" HorizontalAlignment="Left" Margin="110,39,0,0" VerticalAlignment="Top" Width="110" Height="25" LostFocus="ComBox_mName_LostFocus" />
 
-        <Label x:Name="mNumL" Content="物品数量：" HorizontalAlignment="Left" Height="25" Margin="40,96,0,0" VerticalAlignment="Top" Width="65" Foreground="#DDFF0000" />
-        <ComboBox x:Name="comBox_mNum" HorizontalAlignment="Left" Margin="120,95,0,0" VerticalAlignment="Top" Width="110" Height="25" />
+        <Label x:Name="mNumL" Content="物品数量：" HorizontalAlignment="Left" Height="25" Margin="35,85,0,0" VerticalAlignment="Top" Width="65" Foreground="#DDFDFD7C" />
+        <ComboBox x:Name="comBox_mNum" HorizontalAlignment="Left" Margin="110,85,0,0" VerticalAlignment="Top" Width="110" Height="25" />
 
-        <Label x:Name="mParamL" Content="规格、参数：" HorizontalAlignment="Left" Height="25" Margin="30,145,0,0" VerticalAlignment="Top" Width="75" Foreground="#DDFF0000"/>
-        <ComboBox x:Name="comBox_mParam"  HorizontalAlignment="Left" Height="25" Margin="120,145,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label x:Name="mParamL" Content="规格、参数：" HorizontalAlignment="Left" Height="25" Margin="25,130,0,0" VerticalAlignment="Top" Width="75" Foreground="#DDFFFF00"/>
+        <ComboBox x:Name="comBox_mParam"  HorizontalAlignment="Left" Height="25" Margin="110,130,0,0" VerticalAlignment="Top" Width="110"/>
 
-        <TreeView x:Name="treeView" HorizontalAlignment="Left" Height="254" Margin="310,26,0,0" VerticalAlignment="Top" Width="183"/>
-        <Button x:Name="borrowMaterial" Content="确认提交" HorizontalAlignment="Left" Margin="37,255,0,0" VerticalAlignment="Top" Width="83" Height="25" Click="borrowMaterial_Click" FontSize="12" />
-        <Button x:Name="exitButton" Content="取消/退出" HorizontalAlignment="Left" Margin="145,255,0,0" VerticalAlignment="Top" Width="90" Height="25" Click="ExitButton_Click" FontSize="12"/>
+        <TreeView x:Name="treeView" HorizontalAlignment="Left" Height="254" Margin="310,26,0,0" VerticalAlignment="Top" Width="183" Foreground="#DDFFFFFF"/>
+        <Button x:Name="borrowMaterial" Content="确认提交" HorizontalAlignment="Left" Margin="127,255,0,0" VerticalAlignment="Top" Width="83" Height="25" Click="borrowMaterial_Click" FontSize="12" Background="#FF272545" />
+        <Button x:Name="exitButton" Content="取消/退出" HorizontalAlignment="Left" Margin="225,255,0,0" VerticalAlignment="Top" Width="85" Height="25" Click="ExitButton_Click" FontSize="12" Background="#FF272545"/>
 
     </Grid>
 </Window>

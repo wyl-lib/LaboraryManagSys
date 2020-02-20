@@ -29,6 +29,11 @@ namespace initView.Properties
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
+            string message = MessageBox.Show("请再次确认!", "操作提示", MessageBoxButton.OKCancel, MessageBoxImage.Information).ToString().Trim();
+            if (message.Equals("Cancel"))
+            {
+                return;
+            }
             string mailTo = "1346788525@qq.com";//接受反馈的管理员
             string uMesg = feedBackTextBox.Text+"    FeedBack End!!      ";
             uMesg += getRecord.Tables[0].Rows[0][0].ToString().Trim()+" 、 ";//uID

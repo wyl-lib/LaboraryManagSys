@@ -30,55 +30,62 @@ namespace initView.Properties
 
         private void registeButton_Click(object sender, RoutedEventArgs e)
         {
-            //调用CheckFrmTxt函数简单校验数据
-            if (CheckFrmTxt())
+            if (!DBUtil.IsNumeric(uIdTextBox.Text, 10))//uID验证
             {
-                int uID = 2020000000;     
-                if (uIdTextBox.Text.Length == 10)//学号
-                {
-                    uID = int.Parse(uIdTextBox.Text.Trim());
-                }
-                else//手机号
-                {
-                    MessageBox.Show("学号输入有误,请检查!");
-                    return;
-                }
-                int uIdentityID = 2;
-                string uName = uNameTextBox.Text.Trim();
-                string uProClass = uPassWordTextBox.Password.Trim();
-                string uPhone = uPhoneTextBox.Text.Trim();
-                string uPass = uPassWordTextBox.Password.Trim();                //现在密码
-                string uPassBefore = uPassWordTextBox_Again.Password.Trim();   //曾用密码
-                string uEmail = verifyEmailTextBox.Text.Trim();
-                string uIdCard = uIDCardTextBox.Text.Trim();
-                string uBankCard = uBankCardTextBox.Text.Trim();
-                string uRegisteTime = DateTime.Now.ToLocalTime().ToString().Trim();           // 2008-9-4 0:00:00                
+                return;
+            }
+            int uID = int.Parse(uIdTextBox.Text);
+            int uIdentityID = 2;//用户身份
+            string uName = uNameTextBox.Text.Trim();//用户姓名
+            string uProClass = uPassWordTextBox.Password.Trim();//用户专业班级
+            if (!DBUtil.IsPhone(uPhoneTextBox.Text))//uPhone验证
+            {
+                return;
+            }
+            string uPhone = uPhoneTextBox.Text.Trim();
+            string uPass = uPassWordTextBox.Password.Trim();                     //现在密码
+            string uPassBefore = uPassWordTextBox_Again.Password.Trim();        //曾用密码
+            if (!uPass.Equals(uPassBefore))
+            {
+                MessageBox.Show("两次密码输入不一致!");
+                return;
+            }
+            if (!DBUtil.IsEmial(verifyEmailTextBox.Text.Trim()))//uEmail验证
+            {
+                return;
+            }
+            string uEmail = verifyEmailTextBox.Text.Trim();
+            if (!DBUtil.IsIdCard(uIDCardTextBox.Text))//uPhone验证
+            {
+                return;
+            }
+            string uIdCard = uIDCardTextBox.Text.Trim();
+            string uBankCard = uBankCardTextBox.Text.Trim();//uBankCard验证
+            string uRegisteTime = DateTime.Now.ToLocalTime().ToString().Trim();// 2008-9-4 0:00:00                
 
-                if (randomCode == verifyCodeTextBox.Text)
-                {
-                    MessageBox.Show("验证码验证成功！");
-                }
-                else
-                {
-                    MessageBox.Show("验证码验证失败！");
-                    return;
-                }
+            if (randomCode == verifyCodeTextBox.Text)
+            {
+                MessageBox.Show("验证码验证成功！");
+            }
+            else
+            {
+                MessageBox.Show("验证码验证失败！");
+                return;
+            }
 
-                /*
-                 * 向数据库中插入用户记录
-                 * 
-                 */
-                string insertUser = "Insert into kc_user values("+uID+","+uIdentityID+",'"+uName+"','"+uProClass+"','"+uPhone+"','"+uPass+"','"+uPassBefore+ "','"+uEmail+"','"+uIdCard+"','"+uBankCard+"','"+uRegisteTime+"')";
+            /*
+             *  向数据库中插入用户记录
+             */
+            string insertUser = "Insert into kc_user values("+uID+","+uIdentityID+",'"+uName+"','"+uProClass+"','"+uPhone+"','"+uPass+"','"+uPassBefore+ "','"+uEmail+"','"+uIdCard+"','"+uBankCard+"','"+uRegisteTime+"')";
 
-                int returnCode = DBTool.ExecuteUpdate(insertUser);
-                if (returnCode>0)
-                {
-                    MessageBox.Show("Yes,恭喜注册成功！");
-                }
-                else
-                {
-                    MessageBox.Show("Error,出现了某些错误导致注册失败！");
-                }
+            int returnCode = DBTool.ExecuteUpdate(insertUser);
+            if (returnCode>0)
+            {
+                MessageBox.Show("Yes,恭喜注册成功！");
+            }
+            else
+            {
+                MessageBox.Show("Error,出现了某些错误导致注册失败！");
             }
 
         }
@@ -109,65 +116,6 @@ namespace initView.Properties
                     return;
                 }
             }
-        }
-
-        private bool CheckFrmTxt()
-        {
-            //要加上每项字段的合法验证!!!!!
-
-            if (string.IsNullOrEmpty(this.uIdTextBox.Text.Trim()))
-            {
-                MessageBox.Show("学号不能为空！");
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(this.uNameTextBox.Text.Trim()))
-            {
-                MessageBox.Show("姓名不能为空！");
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(this.uPassWordTextBox.Password.Trim()))
-            {
-                MessageBox.Show("密码不能为空！");
-                return false;
-            }
-            if (string.IsNullOrEmpty(this.uPassWordTextBox_Again.Password.Trim()))
-            {
-                MessageBox.Show("确认密码不正确！");
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(this.uProClassTextBox.Text.Trim()))
-            {
-                MessageBox.Show("专业班级不能为空！");
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(this.uPhoneTextBox.Text.Trim()))
-            {
-                MessageBox.Show("手机号不能为空！");
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(this.uIDCardTextBox.Text.Trim()))
-            {
-                MessageBox.Show("身份证号不能为空！");
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(this.uBankCardTextBox.Text.Trim()))
-            {
-                MessageBox.Show("银行卡号不能为空！");
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(this.verifyEmailTextBox.Text.Trim()))
-            {
-                MessageBox.Show("个人邮箱不能为空！");
-                return false;
-            }
-            return true;
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -231,6 +179,11 @@ namespace initView.Properties
         {
             sendEmailBlock.TextDecorations = null;
             sendEmailBlock.FontWeight = FontWeights.Normal;
+        }
+
+        private void UBankCardTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("由于位数较多，请再次确认!!!!");
         }
     }
 }

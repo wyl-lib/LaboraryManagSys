@@ -105,15 +105,19 @@ namespace initView.Properties
             comBox_mNum.ItemsSource = mNum;
         }
         private void borrowMaterial_Click(object sender, RoutedEventArgs e)
-        {
-            //如果数量过多提醒用户
+        {            
+            //通用信息;库存数量不管充不充足都通用的
             string mName = comBox_mName.Text.Trim();
             int mNum = int.Parse(comBox_mNum.Text.Trim());
             string mParam = comBox_mParam.Text.Trim();
+            int uID = int.Parse(getRecord.Tables[0].Rows[0][0].ToString().Trim());
+            string uName = getRecord.Tables[0].Rows[0][2].ToString().Trim();
             DataSet billRecord = new DataSet();
             //最后提交时要判断是否还有余量
             string billInfo = "select mID from kc_materialInfo where mName='"+mName+"' and mParam='"+mParam+"' and mNum>'"+mNum+"'";
             billRecord = DBTool.ExecuteQuery(billInfo);
+
+            //如果数量超出库存走else处理
             if (billRecord.Tables[0].Rows.Count > 0)
             {
                 string message = MessageBox.Show("数量为 "+mNum + " ,请再次确认!", "操作提示", MessageBoxButton.OKCancel, MessageBoxImage.Information).ToString().Trim();
@@ -124,17 +128,43 @@ namespace initView.Properties
                 //更新库存数
                 string materuakInfo = "update kc_materialInfo set mNum -='" + mNum + "'  where mName = '" + mName + "' and mParam = '" + mParam + "'";
                 int fin = DBTool.ExecuteUpdate(materuakInfo);
-                Console.WriteLine("更新库存数数量: " + fin);
+                Console.WriteLine("更新库存数量: " + fin);
 
                 //添加个人借用记录
                 int mID = int.Parse(billRecord.Tables[0].Rows[0][0].ToString().Trim());
-                int uID = int.Parse(getRecord.Tables[0].Rows[0][0].ToString().Trim());
-                string uName = getRecord.Tables[0].Rows[0][2].ToString().Trim();
+                
                 string mBorrowTime = DateTime.Now.ToString().Trim();
-                string billStatistics = "insert into kc_billStatistics values(" + mID + ",'" + mName + "','" + mParam + "'," + mNum + "," + uID + ",'" + uName + "','" + mBorrowTime + "')";
+                String mCheckoutTime = "";
+                string billStatistics = "insert into kc_billStatistics values(" + mID + ",'" + mName + "'" +
+                    ",'" + mParam + "'," + mNum + "," + uID + ",'" + uName + "','" + mBorrowTime + "','" +mCheckoutTime+ "')";
                 int fin1 = DBTool.ExecuteUpdate(billStatistics);
                 Console.WriteLine("添加个人借用记录数量: " + fin1);
                 MessageBox.Show("操作成功","操作提示",MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                //数量超出库存
+                //1、提醒用户物品数量不足
+                string message = MessageBox.Show(mName+" 的数量不足 "+mNum+" ,是否提醒管理员？", "操作提示", MessageBoxButton.OKCancel, MessageBoxImage.Information).ToString().Trim();
+                if (message.Equals("Cancel"))
+                {
+                    return;
+                }
+                //2、发送消息至管理员进货处理
+                try
+                {
+                    string mailTo = "1346788525@qq.com";//接受反馈的管理员
+                    string uMesg = mName + " With " + mParam + " 、 ";//mName、mParam
+                    uMesg += uName + " 、 ";//uName
+                    uMesg += getRecord.Tables[0].Rows[0][3].ToString().Trim() + " 、 ";//uProClass
+                    uMesg += getRecord.Tables[0].Rows[0][7].ToString().Trim() + "    FeedBack End!!      ";//uEmail
+                    string MessageSubject = "科创信息管理系统_物品库存不足提醒";
+                    DBUtil.btnEmailCode_Click(mailTo, uMesg, MessageSubject);
+                }
+                catch
+                {
+                    return;
+                }
             }
         }
 
@@ -155,7 +185,7 @@ namespace initView.Properties
                 List_mParam.Add(billRecord.Tables[0].Rows[c - 1][0].ToString());
             }
             comBox_mParam.ItemsSource = List_mParam;
-            Console.WriteLine("again!!");
+            // Console.WriteLine("again!!");
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

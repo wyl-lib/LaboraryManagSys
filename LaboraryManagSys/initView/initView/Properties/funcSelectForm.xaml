@@ -8,11 +8,11 @@
         Title="功能主界面" Height="450" Width="579.2" Loaded="LodaDate">
     <Grid>
         <Button x:Name="borrowComponent" Content="记账借用" HorizontalAlignment="Left" Margin="50,320,0,0" VerticalAlignment="Top" Width="81" Height="25" Click="borrow_Click" FontSize="12"/>
-        <Button x:Name="clearButoon" Content="结算账单" HorizontalAlignment="Left" Margin="165,320,0,0" VerticalAlignment="Top" Width="81" Height="25" Click="clearBill_Click" FontSize="12"/>
-        <Button x:Name="programeButton" Content="项目录入" HorizontalAlignment="Left" Margin="285,320,0,0" VerticalAlignment="Top" Width="79" Height="25" Click="programe_Click" FontSize="12"/>
+        <Button x:Name="clearButoon" Content="结算账单" HorizontalAlignment="Left" Margin="165,320,0,0" VerticalAlignment="Top" Width="81" Height="25" Click="ClearBill_Click" FontSize="12"/>
+        <Button x:Name="programeButton" Content="项目录入" HorizontalAlignment="Left" Margin="285,320,0,0" VerticalAlignment="Top" Width="79" Height="25" Click="Programe_Click" FontSize="12"/>
 
-        <Button x:Name="adviseButton" Content="反馈" HorizontalAlignment="Left" Margin="476,15,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="advise_Click"/>
-        <Button x:Name="exitButton" Content="完全退出" HorizontalAlignment="Left" Margin="435,385,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="exit_Click" FontSize="12"/>
+        <Button x:Name="adviseButton" Content="反馈" HorizontalAlignment="Left" Margin="476,15,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="Advise_Click"/>
+        <Button x:Name="exitButton" Content="完全退出" HorizontalAlignment="Left" Margin="435,385,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="Exit_Click" FontSize="12"/>
         <DataGrid x:Name="dataGridView" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="195" Margin="36,80,0,0" VerticalAlignment="Top" Width="431"/>
         <!--
             <DataGrid.Columns>

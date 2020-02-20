@@ -67,14 +67,13 @@ namespace initView.Properties
             cmd.Connection = con;
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = sqlStr;
-            string firstString = sqlStr.Substring(0, 1);
-           /* if (firstString.Equals("i")|| firstString.Equals("I"))
+            /* string firstString = sqlStr.Substring(0, 1);
+            if (firstString.Equals("i")|| firstString.Equals("I"))
             {
                 return 1;
             }*/
-            int iud = 0;
+            int iud = cmd.ExecuteNonQuery();
             //执行T-SQL并返回受影响的行数
-            iud = cmd.ExecuteNonQuery();
             Console.WriteLine("受影响的行数为: " + iud);
             closeServer();
             return iud;

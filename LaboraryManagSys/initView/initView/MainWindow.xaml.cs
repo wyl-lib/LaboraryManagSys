@@ -62,12 +62,12 @@ namespace initView
         }
 
         //回车登陆事件，暂时有问题没有实现！！！
-        private void txt_Pwd_KeyDown(object sender, KeyEventArgs e)
+        private void Txt_Pwd_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.Key)
             {
                 case Key.Enter:
-                    login_Click(loginButton, null);
+                    Login_Click(loginButton, null);
                     break;
 
                 default:
@@ -75,45 +75,43 @@ namespace initView
             }
         }
 
-        private void login_Click(object sender, RoutedEventArgs e)
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
-            int uID = 0;
-            string uPhone = "";
-            if (uIdTextBox.Text != "")
+            
+            if (!DBUtil.IsNumeric(uIdTextBox.Text,10))
             {
-                if (uIdTextBox.Text.Length == 10)//学号
-                {
-                    uID = int.Parse(uIdTextBox.Text);
-                }
-                else//手机号
-                {
-                    uPhone = uIdTextBox.Text;
-                }
-            }
-            else
-            {
-                MessageBox.Show("学号/手机号输入有误,请检查!");
                 return;
             }
+            int uID = int.Parse(uIdTextBox.Text);
+            int uPhone = uID;
             string uName = "";
             string uPass = uPasstextBox.Password;
-            string uInfo = "select * from kc_user where uID='" + uID + "' or uPhone='" + uPhone + "' and uPass='" + uPass + "' ";
+            string uInfo = "select * from kc_user where uID='" + uID + "'and uPass='" + uPass + "'" +
+                " or uPhone='" + uPhone + "' and uPass='" + uPass + "' ";
 
             DataSet record = new DataSet();
             selectForm = new funcSelectForm();
             //根据SQL执行后接受数据库DataSet返回值
-            record = DBTool.ExecuteQuery(uInfo);
             try
             {
-                 uName = record.Tables[0].Rows[0][2].ToString();
-                if (record == null && record.Tables.Count <= 0 && record.Tables[0].Rows.Count <= 0)
-                {
-                    MessageBox.Show("用户名或密码有误,请检查!");
-                    return;
-                }
+                record = DBTool.ExecuteQuery(uInfo);
             }
             catch
             {
+                MessageBox.Show("系统遇到某个错误码1001,请通知管理员!");
+            }
+            finally
+            {
+                record.Dispose();
+            }
+
+            try
+            {
+                 uName = record.Tables[0].Rows[0][2].ToString();
+            }
+            catch
+            {
+                MessageBox.Show("用户名或密码有误,请检查!");
                 return;
             }
 
@@ -126,8 +124,6 @@ namespace initView
             string inputCode = verifyCode.Text.Trim().ToUpper();//大写
             Console.WriteLine("imageCode: " + imageCode);
             Console.WriteLine("inputCode: " + inputCode);
-
-            //验证用户是否存在
             if (imageCode.Equals(inputCode))
             {
                 Console.WriteLine("record: " + record);
@@ -153,7 +149,7 @@ namespace initView
 
         }
 
-        private void exit_Click(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
             string message = MessageBox.Show("请再次确认!", "操作提示", MessageBoxButton.OKCancel, MessageBoxImage.Information).ToString().Trim();
             if (message.Equals("Cancel"))

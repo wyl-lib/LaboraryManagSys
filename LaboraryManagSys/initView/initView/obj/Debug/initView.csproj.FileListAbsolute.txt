@@ -105,3 +105,13 @@ D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\i
 D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\MaterialDesignColors.pdb
 D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\Caliburn.Micro.dll
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\Caliburn.Micro.Platform.Core.dll
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\Caliburn.Micro.Platform.dll
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\System.Windows.Interactivity.dll
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\Caliburn.Micro.xml
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\Caliburn.Micro.Platform.xml
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\Caliburn.Micro.Platform.Core.xml
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\nunit.framework.dll
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\nunit.framework.pdb
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\nunit.framework.xml

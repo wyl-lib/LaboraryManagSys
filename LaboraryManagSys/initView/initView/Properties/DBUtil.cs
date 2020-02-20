@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using NUnit.Framework.Internal;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Mail;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -103,6 +107,9 @@ namespace initView.Properties
             }
 
         }
+        /*
+         * 发送邮件时的配置
+         */
         public static bool Send(string MessageTo, MailAddress MessageFrom, string MessageSubject, string MessageBody)
         {
             MailMessage message = new MailMessage();
@@ -181,5 +188,226 @@ namespace initView.Properties
             }
         }
 
+        /*
+         * 检测学号是否合法以及是否重复
+         */
+        public static bool IsNumeric(string str,int num)
+        {
+            try
+            {
+                if (str == null || str.Length != num)
+                {
+                    MessageBox.Show("学号/手机号输入有误,请检查!");
+                    return false;
+                }
+                ASCIIEncoding ascii = new ASCIIEncoding();//new ASCIIEncoding 的实例
+                byte[] bytestr = ascii.GetBytes(str); //把string类型的参数保存到数组里
+
+                foreach (byte c in bytestr) //遍历这个数组里的内容
+                {
+                    if (c < 48 || c > 57)  //判断是否为数字
+                    {
+                        MessageBox.Show("学号/手机号含有非数字,请检查!");
+                        return false;
+                    }
+                    //备注 数字，字母的ASCII码对照表
+                    /*
+                    0~9数字对应十进制48－57
+                    a~z字母对应的十进制97－122十六进制61－7A
+                    A~Z字母对应的十进制65－90十六进制41－5A
+                    */
+                }
+            }
+            catch
+            {
+                MessageBox.Show("系统遇到某个错误码1004,请通知管理员!");
+                return false;
+            }
+            //学号是否已被注册
+            DataSet record = new DataSet();
+            try
+            {
+                int uId = int.Parse(str.ToString().Trim());
+                string uInfo = "select * from kc_user where uID='" + uId + "'";
+                string uName = record.Tables[0].Rows[0][2].ToString();
+            }
+            catch
+            {
+                return true;
+            }
+            finally
+            {
+                record.Dispose();
+            }
+            return true;
+        }
+        /*
+        * 检测身份证号是否合法
+        */
+        public static bool IsIdCard(string idCardNumber)
+        {
+            string idNumber = idCardNumber;
+            bool result = true;
+            try
+            {
+                if (idNumber.Length != 18)
+                {
+                    return false;
+                }
+                long n = 0;
+                if (long.TryParse(idNumber.Remove(17), out n) == false
+                    || n < Math.Pow(10, 16) || long.TryParse(idNumber.Replace('x', '0').Replace('X', '0'), out n) == false)
+                {
+                    return false;//数字验证  
+                }
+                string address = "11x22x35x44x53x12x23x36x45x54x13x31x37x46x61x14x32x41x50x62x15x33x42x51x63x21x34x43x52x64x65x71x81x82x91";
+                if (address.IndexOf(idNumber.Remove(2)) == -1)
+                {
+                    return false;//省份验证  
+                }
+                string birth = idNumber.Substring(6, 8).Insert(6, "-").Insert(4, "-");
+                DateTime time = new DateTime();
+                if (DateTime.TryParse(birth, out time) == false)
+                {
+                    return false;//生日验证  
+                }
+                string[] arrVarifyCode = ("1,0,x,9,8,7,6,5,4,3,2").Split(',');
+                string[] Wi = ("7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2").Split(',');
+                char[] Ai = idNumber.Remove(17).ToCharArray();
+                int sum = 0;
+                for (int i = 0; i < 17; i++)
+                {
+                    sum += int.Parse(Wi[i]) * int.Parse(Ai[i].ToString());
+                }
+                int y = -1;
+                Math.DivRem(sum, 11, out y);
+                if (arrVarifyCode[y] != idNumber.Substring(17, 1).ToLower())
+                {
+                    MessageBox.Show("身份证校验失败！");
+                    return false;//校验码验证  
+                }
+                return true;//符合GB11643-1999标准 
+            }
+            catch
+            {
+                MessageBox.Show("系统遇到某个错误码1002,请通知管理员!");
+                result = false;
+            }
+            return result;
+        }
+
+        /*
+         * 检测手机号码是否合法
+         */
+        public static bool IsPhone(string input)
+        {
+            try
+            {
+                if (input.Length < 11)
+                {
+                    MessageBox.Show("手机号输入有误！");
+                    return false;
+                }
+                //电信手机号码正则
+                string dianxin = @"^1[3578][01379]\d{8}$";
+                Regex regexDX = new Regex(dianxin);
+                //联通手机号码正则
+                string liantong = @"^1[34578][01256]\d{8}";
+                Regex regexLT = new Regex(liantong);
+                //移动手机号码正则
+                string yidong = @"^(1[012345678]\d{8}|1[345678][012356789]\d{8})$";
+                Regex regexYD = new Regex(yidong);
+                if (regexDX.IsMatch(input) || regexLT.IsMatch(input) || regexYD.IsMatch(input))
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("手机号输入有误！");
+                    return false;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("系统遇到某个错误码1003,请通知管理员!");
+                return false;
+            }
+        }
+
+        /*
+         * 检测邮箱号是否合法
+         */
+        public static bool IsEmial(string emailAddress)
+        {
+            //有“@”
+            if (emailAddress.IndexOf("@") == -1)
+            {
+                Console.WriteLine("输入的字符串中 没有@ ！");
+                return false;
+            }
+
+            //只有一个“@”
+            if (emailAddress.IndexOf("@") != emailAddress.LastIndexOf("@"))
+            {
+                Console.WriteLine("输入的字符串中 有多个@ ！");
+                return false;
+            }
+
+            //有“.”
+            if (emailAddress.IndexOf(".") == -1)
+            {
+                Console.WriteLine("输入的字符串中 没有.  ！");
+                return false;
+            }
+
+            //“@”出现在第一个“.”之前
+            if (emailAddress.IndexOf("@") > emailAddress.IndexOf("."))
+            {
+                Console.WriteLine("输入的字符串中 @没有出现在.之前！");
+                return false;
+            }
+
+            //“@”不可以是第一个元素
+            if (emailAddress.StartsWith("@"))
+            {
+                Console.WriteLine("输入的字符串中 @是第一个元素！");
+                return false;
+            }
+
+            //“.”不可以是最后一位
+            if (emailAddress.EndsWith("."))
+            {
+                Console.WriteLine("输入的字符串中 .是最后一位！");
+                return false;
+            }
+
+            //不能出现“@.”
+            if (emailAddress.IndexOf("@.") != -1)
+            {
+                Console.WriteLine("输入的字符串中 出现了@. !");
+                return false;
+            }
+
+            //不能出现“..”
+            if (emailAddress.IndexOf("..") != -1)
+            {
+                Console.WriteLine("输入的字符串中 出现了.. !");
+                return false;
+            }
+
+            return true;
+        }
+        
+        /// <summary>   
+        /// 判断输入的字符串是否是一个合法的Email地址   
+        /// </summary>   
+        /// <param name="input"></param>   
+        /// <returns></returns>   
+        public static bool IsEmail_2(string input)
+        {
+            string pattern = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+            Regex regex = new Regex(pattern);
+            return regex.IsMatch(input);
+        }
     }
 }

@@ -67,7 +67,7 @@ namespace initView.Properties
             }
         }
 
-        private void clearBill_Click(object sender, RoutedEventArgs e)
+        private void ClearBill_Click(object sender, RoutedEventArgs e)
         {
             int uID = int.Parse(getRecord.Tables[0].Rows[0][0].ToString());
             string uPayment = "select kc_billStatistics.mID,kc_billStatistics.mNum," +
@@ -94,19 +94,19 @@ namespace initView.Properties
             clearBill.Show();
 
         }
-        private void advise_Click(object sender, RoutedEventArgs e)
+        private void Advise_Click(object sender, RoutedEventArgs e)
         {
             feedBack = new feedBack();
             feedBack.Show();
         }
 
-        private void programe_Click(object sender, RoutedEventArgs e)
+        private void Programe_Click(object sender, RoutedEventArgs e)
         {
             proJect = new project();
             proJect.Show();
         }
 
-        private void exit_Click(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
             string message = MessageBox.Show("请再次确认!", "操作提示", MessageBoxButton.OKCancel, MessageBoxImage.Information).ToString().Trim();
             if (message.Equals("Cancel"))
