@@ -128,7 +128,6 @@ namespace initView
             Console.WriteLine("inputCode: " + inputCode);
 
             //验证用户是否存在
- 
             if (imageCode.Equals(inputCode))
             {
                 Console.WriteLine("record: " + record);
@@ -184,7 +183,7 @@ namespace initView
 
         private void 忘密textBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            //忘记密码界面
         }
 
         private void 忘密textBlock_MouseLeave(object sender, MouseEventArgs e)
@@ -220,27 +219,24 @@ namespace initView
             看不清textBlock.FontWeight = FontWeights.Bold;
         }
 
-        private void UIdTextBox_GotFocus(object sender, RoutedEventArgs e)
+        private void UIdTextBox_GotFocus_1(object sender, RoutedEventArgs e)
         {
-            string values = "请输入学号/手机号";
+            string values = "输入学号/手机号";
 
-            if (uIdTextBox.Text.Equals(""))
-            {
-                uIdTextBox.Text = "请输入学号/手机号";
-            }
             if (values.Equals(uIdTextBox.Text))
             {
-                uIdTextBox.Clear();
-            }
-            else
-            {
+                uIdTextBox.Text = "";
                 return;
-            }
+            }          
         }
 
-        private void UPasstextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void UIdTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-
+            if (uIdTextBox.Text.Equals(""))
+            {
+                uIdTextBox.Text = "输入学号/手机号";
+                return;
+            }
         }
     }
 }

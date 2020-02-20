@@ -5,29 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:initView"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
         Title="实验室信息管理系统" Height="410" Width="660" AllowsTransparency="True" WindowStyle="None">
-
     <Grid x:Name="gridRoot" Margin="0,0,4.8,4.8">
-        <Label x:Name="usernameL" Content="用 户 名：" HorizontalAlignment="Left" Height="35" Margin="138,113,0,0" VerticalAlignment="Top" Width="60"/>
-        <Label x:Name="passwordL" Content="密     码：" HorizontalAlignment="Left" Height="35" Margin="138,163,0,0" VerticalAlignment="Top" Width="60"/>
-        <Label x:Name="verifycodeL" Content="验 证 码：" HorizontalAlignment="Left" Height="35" Margin="138,213,0,0" VerticalAlignment="Top" Width="60"/>
+        <Image x:Name="ground" Margin="-161,0,-154.8,-6.2" Source="/initView;component/picturePath/MainGround1.jpg" RenderTransformOrigin="0.522,0.526" />
 
-        <TextBox x:Name="uIdTextBox" Text="请输入学号/手机号" HorizontalAlignment="Left" Height="30" Margin="209,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Foreground="#FF9D4141" GotFocus="UIdTextBox_GotFocus"/>
-        <PasswordBox x:Name="uPasstextBox" HorizontalAlignment="Left" Height="30" Width="160" Margin="209,165,0,0" VerticalAlignment="Top" Foreground="#FF9D4141" />
-        <TextBox x:Name="verifyCode" HorizontalAlignment="Left" Height="30" Margin="209,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Foreground="#FF9D4141" />
-        <Button x:Name="loginButton" Content="登陆" HorizontalAlignment="Left" Margin="139,280,0,0" VerticalAlignment="Top" Width="181" Height="30" Click="login_Click"/>
+        <Label x:Name="usernameL" Content="用 户 名：" HorizontalAlignment="Left" Height="35" Margin="173,109,0,0" VerticalAlignment="Top" Width="60" Foreground="White"/>
+        <Label x:Name="passwordL" Content="密     码：" HorizontalAlignment="Left" Height="35" Margin="173,159,0,0" VerticalAlignment="Top" Width="60" Foreground="#FFF4E3E3"/>
+        <Label x:Name="verifycodeL" Content="验 证 码：" HorizontalAlignment="Left" Height="35" Margin="173,209,0,0" VerticalAlignment="Top" Width="60" Foreground="#FF9A8C8C"/>
 
-        <Image x:Name="verifyImageCode" HorizontalAlignment="Left" Height="40" Margin="284,208,0,0" VerticalAlignment="Top" Width="100"/>
-        <Grid HorizontalAlignment="Left" Height="175" Margin="442,95,0,0" VerticalAlignment="Top" Width="180">
-            <Image x:Name="qqCode_jpg" Margin="2,0,18,0" Source="qqCode.jpg" Stretch="Fill"/>
+        <TextBox x:Name="uIdTextBox" Text="输入学号/手机号" HorizontalAlignment="Left" Height="30" Margin="244,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Foreground="#FFFF5C00" GotFocus="UIdTextBox_GotFocus_1" LostFocus="UIdTextBox_LostFocus"/>
+        <PasswordBox x:Name="uPasstextBox" HorizontalAlignment="Left" Height="30" Width="160" Margin="244,161,0,0" VerticalAlignment="Top" Foreground="#FFFF5C00" />
+        <TextBox x:Name="verifyCode" HorizontalAlignment="Left" Height="31" Margin="244,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" Foreground="#FFFF5C00" />
+        <Button x:Name="loginButton" Content="登陆" HorizontalAlignment="Left" Margin="229,270,0,0" VerticalAlignment="Top" Width="181" Height="30" Click="login_Click" Background="#FF272545"/>
+
+        <Image x:Name="verifyImageCode" HorizontalAlignment="Left" Height="40" Margin="325,205,0,0" VerticalAlignment="Top" Width="100"/>
+        <Grid HorizontalAlignment="Left" Height="175" Margin="441,101,0,0" VerticalAlignment="Top" Width="180">
+            <Image x:Name="qqCode_jpg" Margin="9,4,11,-4" Source="/initView;component/picturePath/qqCode.jpg" Stretch="Fill"/>
         </Grid>
-        <Label x:Name="扫一扫QRCode" Content="扫一扫下载科技创新实验室客户端" HorizontalAlignment="Left" Margin="435,284,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="扫一扫QRCode" Content="扫一扫下载科创实验室客户端" HorizontalAlignment="Left" Margin="442,291,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
 
-        <TextBlock x:Name="注册textBlock" Text="注册账户" HorizontalAlignment="Left" Margin="330,288,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" TextDecorations="{x:Null}" FontWeight="Bold" Foreground="#FFE42886" RenderTransformOrigin="0.008,0.342" MouseDown="注册textBlock_MouseDown" MouseMove="注册textBlock_MouseMove" MouseLeave="注册textBlock_MouseLeave" Height="25" Width="50"/>
-        <TextBlock x:Name="忘密textBlock" Text="忘记密码" HorizontalAlignment="Left" Margin="325,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="blue" FontSize="10" MouseDown="忘密textBlock_MouseDown" MouseLeave="忘密textBlock_MouseLeave" MouseMove="忘密textBlock_MouseMove"/>
-        <TextBlock x:Name="看不清textBlock" Text="看不清" HorizontalAlignment="Left" Margin="251,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="blue" FontSize="10" MouseDown="看不清textBlock_MouseDown" MouseLeave="看不清textBlock_MouseLeave" MouseMove="看不清textBlock_MouseMove"/>
-        
-        <Button x:Name="exitButton" Content="完全退出" HorizontalAlignment="Left" Margin="440,355,0,0" VerticalAlignment="Top" Width="70" Height="30" Click="exit_Click"/>
-        
+        <TextBlock x:Name="注册textBlock" HorizontalAlignment="Left" Margin="170,280,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" TextDecorations="{x:Null}" Foreground="White" RenderTransformOrigin="0.008,0.342" MouseDown="注册textBlock_MouseDown" MouseMove="注册textBlock_MouseMove" MouseLeave="注册textBlock_MouseLeave" Height="25" Width="50" FontSize="12" FontWeight="Bold"><Run Text="注册"/><Run Text="账户"/></TextBlock>
+        <TextBlock x:Name="忘密textBlock" Text="忘记密码" HorizontalAlignment="Left" Margin="360,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFF5C00" FontSize="10" MouseDown="忘密textBlock_MouseDown" MouseLeave="忘密textBlock_MouseLeave" MouseMove="忘密textBlock_MouseMove"/>
+        <TextBlock x:Name="看不清textBlock" Text="看不清" HorizontalAlignment="Left" Margin="286,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFF5C00" FontSize="10" MouseDown="看不清textBlock_MouseDown" MouseLeave="看不清textBlock_MouseLeave" MouseMove="看不清textBlock_MouseMove"/>
+
+        <Button x:Name="exitButton" Content="完全退出" HorizontalAlignment="Left" Margin="530,355,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="exit_Click" FontSize="10" Background="#FF2A2846"/>
+        <Image x:Name="校标_png" Margin="430,20,21.2,309.8" Source="/initView;component/picturePath/校标.png" Stretch="Fill" OpacityMask="Black"/>
+
     </Grid>
 </Window>

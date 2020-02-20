@@ -7,17 +7,15 @@
         mc:Ignorable="d"
         Title="匿名反馈" Height="435" Width="310">
     <Grid Margin="0,0,0,1.0">
-
-        <Image x:Name="E_mail_jpg" Margin="0,0,-299.4,0.6" Source="/initView;component/E-mail.jpg" Stretch="Fill"/>
-
-        <TextBox x:Name="feedBackTextBox" AcceptsReturn="True" HorizontalAlignment="Left" Height="245" Margin="130,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" VerticalContentAlignment="Top" FontFamily="Yu Gothic UI Light" Foreground="#DDFFFFFF" FontWeight="Bold" FontSize="16">
+        <Image x:Name="E_mail_jpg" Margin="0,0,-299.4,0.6" Source="/initView;component/picturePath/E-mail.jpg" Stretch="Fill"/>
+        <TextBox x:Name="feedBackTextBox" AcceptsReturn="True" HorizontalAlignment="Left" Height="225" Margin="130,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" VerticalContentAlignment="Top" FontFamily="Yu Gothic UI Light" Foreground="#DDFFFFFF" FontWeight="Bold" FontSize="16">
             <TextBox.Background>
                 <ImageBrush/>
             </TextBox.Background>
         </TextBox>
 
-        <Button x:Name="send" Content="Send" HorizontalAlignment="Left" Height="30" Margin="117,345,0,0" VerticalAlignment="Top" Width="78" Click="Send_Click"/>
-        <Button x:Name="exitButton" Content="取消/退出" HorizontalAlignment="Left" Margin="225,346,0,0" VerticalAlignment="Top" Width="70" Click="ExitButton_Click" Height="34"/>
+        <Button x:Name="send" Content="Send" HorizontalAlignment="Left" Height="30" Margin="122,310,0,0" VerticalAlignment="Top" Width="133" Click="Send_Click"/>
+        <Button x:Name="exitButton" Content="取消/退出" HorizontalAlignment="Left" Margin="120,356,0,0" VerticalAlignment="Top" Width="135" Click="ExitButton_Click" Height="34"/>
 
     </Grid>
 </Window>

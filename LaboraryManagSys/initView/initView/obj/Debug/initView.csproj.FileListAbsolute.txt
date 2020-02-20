@@ -99,3 +99,9 @@ D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\i
 D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\obj\Debug\initView.csproj.CopyComplete
 D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\obj\Debug\initView.exe
 D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\obj\Debug\initView.pdb
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\obj\Debug\App.baml
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\MaterialDesignColors.dll
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\MaterialDesignColors.pdb
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\bin\Debug\MaterialDesignThemes.Wpf.xml

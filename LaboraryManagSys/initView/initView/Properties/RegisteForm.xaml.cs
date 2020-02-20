@@ -33,7 +33,16 @@ namespace initView.Properties
             //调用CheckFrmTxt函数简单校验数据
             if (CheckFrmTxt())
             {
-                int uID = int.Parse(uIdTextBox.Text.Trim());
+                int uID = 2020000000;     
+                if (uIdTextBox.Text.Length == 10)//学号
+                {
+                    uID = int.Parse(uIdTextBox.Text.Trim());
+                }
+                else//手机号
+                {
+                    MessageBox.Show("学号输入有误,请检查!");
+                    return;
+                }
                 int uIdentityID = 2;
                 string uName = uNameTextBox.Text.Trim();
                 string uProClass = uPassWordTextBox.Password.Trim();
@@ -80,7 +89,7 @@ namespace initView.Properties
             string mailTo = this.verifyEmailTextBox.Text.Trim();
             if (string.IsNullOrEmpty(mailTo))
             {
-                MessageBox.Show("个人邮箱不能为空！");
+                MessageBox.Show("个人邮箱不能为空!");
             }
             else
             {
@@ -184,7 +193,7 @@ namespace initView.Properties
             }
         }
 
-        private void SendEmailButton_MouseDown(object sender, MouseButtonEventArgs e)
+        private void SendEmailBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             //1、校验邮箱非空  2、合法邮箱
             string mailTo = this.verifyEmailTextBox.Text.Trim();
@@ -212,10 +221,16 @@ namespace initView.Properties
             }
         }
 
-        private void SendEmailButton_GotFocus(object sender, RoutedEventArgs e)
+        private void SendEmailBlock_MouseMove(object sender, MouseEventArgs e)
         {
-            sendEmailButton.FontWeight = FontWeights.Bold;
-            sendEmailButton.TextDecorations = TextDecorations.Underline;
+            sendEmailBlock.FontWeight = FontWeights.Bold;
+            sendEmailBlock.TextDecorations = TextDecorations.Underline;
+        }
+
+        private void SendEmailBlock_MouseLeave(object sender, MouseEventArgs e)
+        {
+            sendEmailBlock.TextDecorations = null;
+            sendEmailBlock.FontWeight = FontWeights.Normal;
         }
     }
 }

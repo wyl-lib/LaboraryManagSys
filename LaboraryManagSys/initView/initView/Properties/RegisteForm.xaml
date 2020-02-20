@@ -5,44 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:initView.Properties"
         mc:Ignorable="d"
-        Title="用户注册" Height="450" Width="800">
+        Title="用户注册" Height="450" Width="668.1">
     <Grid Height="433">
-        <Label x:Name="uId" Content="学   号：" HorizontalAlignment="Left" Height="35" Margin="37,64,0,0" VerticalAlignment="Top" Width="60"/>
-        <TextBox x:Name="uIdTextBox" HorizontalAlignment="Left" Height="30" Margin="117,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <Image x:Name="E_mail_jpg" Margin="-4,-12,-498.4,-2" Source="/initView;component/picturePath/motorCar.jpg" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="1164" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.508"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
 
-        <Label x:Name="uId_Copy" Content="姓   名：" HorizontalAlignment="Left" Height="35" Margin="37,109,0,0" VerticalAlignment="Top" Width="60"/>
-        <TextBox x:Name="uNameTextBox" HorizontalAlignment="Left" Height="30" Margin="117,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-        
-        <Label x:Name="uPassWordL" Content="密   码：" HorizontalAlignment="Left" Height="35" Margin="37,156,0,0" VerticalAlignment="Top" Width="60" RenderTransformOrigin="0.565,0.214"/>
-        <PasswordBox x:Name="uPassWordTextBox" HorizontalAlignment="Left"  Height="30" Width="150" Margin="117,157,0,0" VerticalAlignment="Top" Foreground="#FF9D4141" />
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="198,167,0,0" TextWrapping="Wrap" Text="(密码最少六位)" VerticalAlignment="Top" FontSize="10" Foreground="Red"/>
-       
-        <Label x:Name="uPassWordL_Again" Content="确认密码：" HorizontalAlignment="Left" Height="35" Margin="27,205,0,0" VerticalAlignment="Top" Width="70"/>
-        <PasswordBox x:Name="uPassWordTextBox_Again" HorizontalAlignment="Left"  Height="30" Width="150" Margin="117,205,0,0" VerticalAlignment="Top" Foreground="#FF9D4141" LostFocus="UPassWordTextBox_Again_LostFocus" />
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="238,215,0,0" TextWrapping="Wrap" Text="Y/N" VerticalAlignment="Top" Foreground="Red"/>
-        
-        <Label x:Name="uProClassL" Content="专业班级：" HorizontalAlignment="Left" Height="35" Margin="27,252,0,0" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.565,0.214"/>
-        <TextBox x:Name="uProClassTextBox" Height="30" Margin="117,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150"/>
+        <Label x:Name="uId" Content="学   号：" HorizontalAlignment="Left" Height="35" Margin="37,64,0,0" Foreground="#DDFFFFFF" VerticalAlignment="Top" Width="60" FontSize="13" />
+        <TextBox x:Name="uIdTextBox" HorizontalAlignment="Left" Height="30" Margin="117,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Foreground="#FF28DCDF"/>
 
-        <Label x:Name="uPhoneL" Content="手机号：" HorizontalAlignment="Left" Height="35" Margin="334,64,0,0" VerticalAlignment="Top" Width="60"/>
-        <TextBox x:Name="uPhoneTextBox" HorizontalAlignment="Left" Height="30" Margin="412,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <Label x:Name="uId_Copy" Content="姓   名：" HorizontalAlignment="Left" Height="35" Margin="37,109,0,0"  Foreground="#DDFFFFFF" VerticalAlignment="Top" Width="60" FontSize="13"/>
+        <TextBox x:Name="uNameTextBox" HorizontalAlignment="Left" Height="30" Margin="117,109,0,0" TextWrapping="Wrap" Foreground="#FF28DCDF" VerticalAlignment="Top" Width="150"/>
 
-        <Label x:Name="uIdCardL" Content="身份证号：" HorizontalAlignment="Left" Height="35" Margin="324,109,0,0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="uIDCardTextBox" HorizontalAlignment="Left" Height="30" Margin="412,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <Label x:Name="uPassWordL" Content="密   码：" HorizontalAlignment="Left" Height="35" Margin="37,156,0,0" Foreground="#DDFFFFFF" VerticalAlignment="Top" Width="60" RenderTransformOrigin="0.565,0.214" FontSize="13"/>
+        <PasswordBox x:Name="uPassWordTextBox" HorizontalAlignment="Left"  Height="30" Width="150" Margin="117,157,0,0" VerticalAlignment="Top" Foreground="#FF28DCDF" />
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="215,167,0,0" TextWrapping="Wrap" Text="(最少六位)" VerticalAlignment="Top" FontSize="10" Foreground="#FF0FFF00"/>
 
-        <Label x:Name="uBankCardL" Content="银行卡号：" HorizontalAlignment="Left" Height="35" Margin="324,161,0,0" VerticalAlignment="Top" Width="78"/>
-        <TextBox x:Name="uBankCardTextBox" HorizontalAlignment="Left" Height="30" Margin="412,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <Label x:Name="uPassWordL_Again" Content="确认密码：" HorizontalAlignment="Left" Height="35" Margin="27,205,0,0" Foreground="#DDFFFFFF" VerticalAlignment="Top" Width="70" FontSize="13"/>
+        <PasswordBox x:Name="uPassWordTextBox_Again" HorizontalAlignment="Left"  Height="30" Width="150" Margin="117,205,0,0" VerticalAlignment="Top" Foreground="#FF28DCDF" LostFocus="UPassWordTextBox_Again_LostFocus" />
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="238,215,0,0" TextWrapping="Wrap" Text="Y/N" VerticalAlignment="Top" Foreground="#FF00FF31"/>
 
-        <Label x:Name="uEmailL" Content="个人邮箱：" HorizontalAlignment="Left" Height="35" Margin="326,205,0,0" VerticalAlignment="Top" Width="68"/>
-        <TextBox x:Name="verifyEmailTextBox" HorizontalAlignment="Left" Height="30" Margin="412,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <Label x:Name="uProClassL" Content="专业班级：" HorizontalAlignment="Left" Height="35" Margin="27,252,0,0" Foreground="#DDFFFFFF" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.565,0.214" FontSize="13"/>
+        <TextBox x:Name="uProClassTextBox" Height="30" Margin="117,252,0,0" TextWrapping="Wrap" Foreground="#FF28DCDF" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150"/>
 
-        <Label x:Name="verifyCodeL" Content="验  证  码：" HorizontalAlignment="Left" Height="35" Margin="324,252,0,0" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.565,0.214"/>
-        <TextBox x:Name="verifyCodeTextBox" Height="30" Margin="412,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="103" />
-        <TextBlock x:Name="sendEmailButton" HorizontalAlignment="Left" Margin="520,267,0,0"  TextDecorations="{x:Null}"  TextWrapping="Wrap" Text="获取验证码" VerticalAlignment="Top" Foreground="Red" FontSize="10" MouseDown="SendEmailButton_MouseDown" GotFocus="SendEmailButton_GotFocus"/>
-        
-        <Button x:Name="registeButton" Content="提交注册" HorizontalAlignment="Left" Margin="412,349,0,0" VerticalAlignment="Top" Width="68" Height="30" Click="registeButton_Click" RenderTransformOrigin="-1.191,0.648"/>
-        <Button x:Name="exitButton" Content="取消/退出" HorizontalAlignment="Left" Margin="520,350,0,0" VerticalAlignment="Top" Width="68" Height="30" Click="ExitButton_Click"/>
-        
+        <Label x:Name="uPhoneL" Content="手 机 号：" HorizontalAlignment="Left" Height="35" Margin="325,65,0,0" Foreground="#DDFFFFFF" VerticalAlignment="Top" Width="60" FontSize="13"/>
+        <TextBox x:Name="uPhoneTextBox" HorizontalAlignment="Left" Height="30" Margin="412,64,0,0" Foreground="#FF28DCDF" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+
+        <Label x:Name="uIdCardL" Content="身份证号：" HorizontalAlignment="Left" Height="35" Margin="324,109,0,0" Foreground="#DDFFFFFF" VerticalAlignment="Top" Width="70" FontSize="13"/>
+        <TextBox x:Name="uIDCardTextBox" HorizontalAlignment="Left" Height="30" Margin="412,109,0,0" Foreground="#FF28DCDF" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+
+        <Label x:Name="uBankCardL" Content="银行卡号：" HorizontalAlignment="Left" Height="35" Margin="324,161,0,0" Foreground="#DDFFFFFF" VerticalAlignment="Top" Width="78" FontSize="13"/>
+        <TextBox x:Name="uBankCardTextBox" HorizontalAlignment="Left" Height="30" Margin="412,156,0,0" Foreground="#FF28DCDF" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+
+        <Label x:Name="uEmailL" Content="个人邮箱：" HorizontalAlignment="Left" Height="35" Margin="326,205,0,0" Foreground="#DDFFFFFF" VerticalAlignment="Top" Width="68" FontSize="13"/>
+        <TextBox x:Name="verifyEmailTextBox" HorizontalAlignment="Left" Height="30" Margin="412,205,0,0" Foreground="#FF28DCDF" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+
+        <Label x:Name="verifyCodeL" Content="验  证  码：" HorizontalAlignment="Left" Height="35" Margin="324,252,0,0" Foreground="#DDFFFFFF" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.565,0.214" FontSize="13"/>
+        <TextBox x:Name="verifyCodeTextBox" Height="30" Margin="412,252,0,0" TextWrapping="Wrap" Foreground="#FF28DCDF" VerticalAlignment="Top" HorizontalAlignment="Left" Width="103" />
+        <TextBlock x:Name="sendEmailBlock" HorizontalAlignment="Left" Margin="524,265,0,0" TextWrapping="Wrap" Text="获取验证码" VerticalAlignment="Top" Foreground="#FF32E6F0" MouseMove="SendEmailBlock_MouseMove" MouseDown="SendEmailBlock_MouseDown" MouseLeave="SendEmailBlock_MouseLeave"/>
+
+        <Button x:Name="registeButton" Content="注册" HorizontalAlignment="Left" Margin="410,350,0,0" VerticalAlignment="Top" Width="68" Height="30" Click="registeButton_Click" RenderTransformOrigin="-1.191,0.648" Background="#FF79064C"/>
+        <Button x:Name="exitButton" Content="退出" HorizontalAlignment="Left" Margin="515,350,0,0" VerticalAlignment="Top" Width="68" Height="30" Click="ExitButton_Click" Background="#FF79064C"/>
+
 
     </Grid>
 </Window>
