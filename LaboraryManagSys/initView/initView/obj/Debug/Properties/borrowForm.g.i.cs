@@ -140,7 +140,7 @@ namespace initView.Properties {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/initView;component/properties/borrowform.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/科技创新实验室;component/properties/borrowform.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Properties\borrowForm.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

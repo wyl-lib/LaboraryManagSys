@@ -28,7 +28,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ico128.ico</ApplicationIcon>
+    <ApplicationIcon>picturePath\ico128.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -108,17 +108,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="clearBill.xaml.cs">
+    <Compile Include="FuncInterface\clearBill.xaml.cs">
       <DependentUpon>clearBill.xaml</DependentUpon>
     </Compile>
-    <Compile Include="project.xaml.cs">
+    <Compile Include="FuncInterface\AdminFuncForm.xaml.cs">
+      <DependentUpon>AdminFuncForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FuncInterface\MaterialInfo.xaml.cs">
+      <DependentUpon>MaterialInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FuncInterface\project.xaml.cs">
       <DependentUpon>project.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\ForgetPass.xaml.cs">
       <DependentUpon>ForgetPass.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Properties\ValidCode.cs" />
-    <Page Include="clearBill.xaml">
+    <Compile Include="DBTool\ValidCode.cs" />
+    <Page Include="FuncInterface\clearBill.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FuncInterface\AdminFuncForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FuncInterface\MaterialInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,7 +148,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="project.xaml">
+    <Page Include="FuncInterface\project.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,15 +160,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Properties\feedBack.xaml">
+    <Page Include="FuncInterface\feedBack.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Properties\funcSelectForm.xaml">
+    <Page Include="FuncInterface\funcSelectForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Properties\borrowForm.xaml">
+    <Page Include="FuncInterface\borrowForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,20 +177,20 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\DBUtil.cs" />
+    <Compile Include="DBTool\DBUtil.cs" />
     <Compile Include="Properties\RegisteForm.xaml.cs">
       <DependentUpon>RegisteForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Properties\DBTool.cs" />
-    <Compile Include="Properties\feedBack.xaml.cs">
+    <Compile Include="DBTool\DBTool.cs" />
+    <Compile Include="FuncInterface\feedBack.xaml.cs">
       <DependentUpon>feedBack.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Properties\funcSelectForm.xaml.cs">
+    <Compile Include="FuncInterface\funcSelectForm.xaml.cs">
       <DependentUpon>funcSelectForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Properties\kc_billStatistics.cs" />
-    <Compile Include="Properties\kc_user.cs" />
-    <Compile Include="Properties\borrowForm.xaml.cs">
+    <Compile Include="Beans\kc_billStatistics.cs" />
+    <Compile Include="Beans\kc_user.cs" />
+    <Compile Include="FuncInterface\borrowForm.xaml.cs">
       <DependentUpon>borrowForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -223,7 +237,7 @@
     <Resource Include="picturePath\Ali_QRcode.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ico128.ico" />
+    <Resource Include="picturePath\ico128.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -283,6 +297,7 @@
   <ItemGroup>
     <Resource Include="picturePath\earthHengping.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <SsdtUnitTestVersion>3.1</SsdtUnitTestVersion>

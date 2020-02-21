@@ -193,7 +193,7 @@ namespace initView.Properties
         {
             try
             {
-                if (str == null || str.Length != 10)
+                if (str == null || str.Length != 10 && str.Length != 11)
                 {
                     MessageBox.Show("学号/手机号输入有误,请检查!");
                     return false;

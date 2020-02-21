@@ -31,9 +31,10 @@ namespace initView
         static ForgetPass forgetPass;
         static RegisteForm registeFrom;
         static funcSelectForm selectForm;
+        static AdminFuncForm adminFuncForm;
         
         //创建people数组
-        ObservableCollection<kc_user> peopleList = new ObservableCollection<kc_user>();
+        //ObservableCollection<kc_user> peopleList = new ObservableCollection<kc_user>();
         string imageCode = "";
         
         public MainWindow()
@@ -82,19 +83,25 @@ namespace initView
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+            int uID = 1;
+            string uName = "";
+            string uPhone = "";
+            string uPass = uPasstextBox.Password.Trim();
             if (!DBUtil.IsNumeric(uIdTextBox.Text.Trim(), true))
             {
                 return;
             }
-            int uID = int.Parse(uIdTextBox.Text.Trim());
-            int uPhone = uID;
-            string uName = "";
-            string uPass = uPasstextBox.Password.Trim();
+            if (uIdTextBox.Text.Trim().Length == 11)
+            {
+                uPhone = uIdTextBox.Text.Trim();
+            }
+            else
+            {
+                uID = int.Parse(uIdTextBox.Text.Trim());
+            }
             string uInfo = "select * from kc_user where uID='" + uID + "'and uPass='" + uPass + "'" +
                 " or uPhone='" + uPhone + "' and uPass='" + uPass + "' ";
-
             DataSet record = new DataSet();
-            selectForm = new funcSelectForm();
             //根据SQL执行后接受数据库DataSet返回值
             try
             {
@@ -120,6 +127,7 @@ namespace initView
             }
 
             //传递数据到多个窗体中，以便数据操作
+            AdminFuncForm.getRecord = record;
             funcSelectForm.getRecord = record;
             borrowForm.getRecord = record;
             feedBack.getRecord = record;
@@ -131,7 +139,7 @@ namespace initView
             if (imageCode.Equals(inputCode))
             {
                 string loginDate = DateTime.Now.ToString().Trim();
-                string loginLog = "insert into loginLog values('" + uID + "','" + uName + "','" + loginDate + "')";
+                string loginLog = "insert into kc_loginLog values('" + uID + "','" + uName + "','" + loginDate + "')";
                 int fin1 = DBTool.ExecuteUpdate(loginLog);
                 Console.WriteLine("添加个人借用记录数量: " + fin1);
 
@@ -141,8 +149,18 @@ namespace initView
                 this.ShowInTaskbar = false;
                 this.Visibility = Visibility.Hidden;
 
-                //打开主功能界面
-                selectForm.Show();
+                //根据用户权限，打开主功能界面
+                int uIdentityID = int.Parse(record.Tables[0].Rows[0][1].ToString().Trim());
+                if (uIdentityID == 1)
+                {
+                    adminFuncForm = new AdminFuncForm();
+                    adminFuncForm.Show();
+                }
+                else
+                {
+                    selectForm = new funcSelectForm();
+                    selectForm.Show();
+                }
             }
             else
             {

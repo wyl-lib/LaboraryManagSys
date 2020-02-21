@@ -124,7 +124,7 @@ namespace initView.Properties {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/initView;component/properties/funcselectform.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/科技创新实验室;component/properties/funcselectform.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Properties\funcSelectForm.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

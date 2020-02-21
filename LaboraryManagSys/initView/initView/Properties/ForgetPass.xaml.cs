@@ -44,6 +44,16 @@ namespace initView.Properties
             }
         }
 
-
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            string message = MessageBox.Show("请再次确认!", "操作提示", MessageBoxButton.OKCancel, MessageBoxImage.Information).ToString().Trim();
+            if (message.Equals("Cancel"))
+            {
+                return;
+            }
+            //完全退出
+            this.Close();
+            System.Environment.Exit(System.Environment.ExitCode);
+        }
     }
 }

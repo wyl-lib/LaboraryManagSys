@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\3Laborary实验室\实验室管理系统\githubLabMangeSys\LaboraryManagSys\initView\initView\App.xaml
-8-1383790387
+102059839353
 
-18-220963921
+20538621300
 771492110934
-clearBill.xaml;MainWindow.xaml;project.xaml;Properties\ForgetPass.xaml;Properties\RegisteForm.xaml;Properties\feedBack.xaml;Properties\funcSelectForm.xaml;Properties\borrowForm.xaml;
+FuncInterface\clearBill.xaml;FuncInterface\AdminFuncForm.xaml;FuncInterface\MaterialInfo.xaml;MainWindow.xaml;FuncInterface\project.xaml;Properties\ForgetPass.xaml;Properties\RegisteForm.xaml;FuncInterface\feedBack.xaml;FuncInterface\funcSelectForm.xaml;FuncInterface\borrowForm.xaml;
 
 True
 

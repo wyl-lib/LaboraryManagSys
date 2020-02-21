@@ -20,12 +20,13 @@ namespace initView.Properties
     /// <summary>
     /// fun.xaml 的交互逻辑
     /// </summary>
-    public partial class funcSelectForm : Window
+    public partial class AdminFuncForm : Window
     {
+        static MaterialInfo materialInfo;
         static borrowForm borrowForm;
         static clearBill clearBill;
-        static feedBack feedBack;
-        static project proJect;
+        static Project proJect;
+
         public static DataSet getRecord { get; set; }
         ObservableCollection<kc_billStatistics> userBorrowList = new ObservableCollection<kc_billStatistics>();
 
@@ -37,24 +38,24 @@ namespace initView.Properties
             base.OnMouseLeftButtonDown(e);
 
             // 获取鼠标相对标题栏位置
-            System.Windows.Point position = e.GetPosition(funSelect);
+            System.Windows.Point position = e.GetPosition(AdminFunc);
 
             // 如果鼠标位置在标题栏内，允许拖动
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                if (position.X >= 0 && position.X < funSelect.ActualWidth && position.Y >= 0 && position.Y < funSelect.ActualHeight)
+                if (position.X >= 0 && position.X < AdminFunc.ActualWidth && position.Y >= 0 && position.Y < AdminFunc.ActualHeight)
                 {
                     this.DragMove();
                 }
             }
         }
 
-        public funcSelectForm()
+        public AdminFuncForm()
         {
             InitializeComponent();
         }
 
-        private void borrow_Click(object sender, RoutedEventArgs e)
+        private void Borrow_Click(object sender, RoutedEventArgs e)
         {
             //打开借用元件界面
             borrowForm = new borrowForm();
@@ -70,7 +71,7 @@ namespace initView.Properties
             int count = billRecord.Tables[0].Rows.Count;
             for (int i = 0; i < count; i++)
             {
-                int mID = int.Parse(billRecord.Tables[0].Rows[i][1].ToString());
+                //int mID = int.Parse(billRecord.Tables[0].Rows[i][1].ToString());
                 string mName = billRecord.Tables[0].Rows[i][2].ToString();
                 string mParam = billRecord.Tables[0].Rows[i][3].ToString();
                 int mNum = int.Parse(billRecord.Tables[0].Rows[i][4].ToString());
@@ -78,7 +79,7 @@ namespace initView.Properties
                 string mBorrowTime = billRecord.Tables[0].Rows[i][7].ToString();
 
                 userBorrowList.Add(new kc_billStatistics(){
-                    mID = mID,
+                    //mID = mID,
                     mName = mName,
                     mParam = mParam,
                     mNum = mNum,
@@ -87,45 +88,6 @@ namespace initView.Properties
                 });
                 ((this.FindName("dataGridView")) as DataGrid).ItemsSource = userBorrowList;
             }
-        }
-
-        private void ClearBill_Click(object sender, RoutedEventArgs e)
-        {
-            int uID = int.Parse(getRecord.Tables[0].Rows[0][0].ToString());
-            string uPayment = "select kc_billStatistics.mID,kc_billStatistics.mNum," +
-                "mPrice,kc_billStatistics.mNum* mPrice as hj,uName from kc_materialInfo," +
-                "kc_billStatistics where kc_materialInfo.mID = kc_billStatistics.mID and uID='"+uID+"'";
-            DataSet billRecord = new DataSet();
-            billRecord = DBTool.ExecuteQuery(uPayment);
-            int count = billRecord.Tables[0].Rows.Count;
-            float mToltal=0;//付款总计金额
-            //float num = 0;
-            for (int i = 0; i < count; i++)
-            {
-                //num = float.Parse(billRecord.Tables[0].Rows[i][3].ToString());
-                mToltal += float.Parse(billRecord.Tables[0].Rows[i][3].ToString());
-            }
-            Console.WriteLine("mToltal: " + mToltal);
-            string message = MessageBox.Show("总金额为"+mToltal+"请确认!","操作提示", MessageBoxButton.OKCancel, MessageBoxImage.Information).ToString().Trim();
-            if (message.Equals("Cancel"))
-            {
-                return;
-            }
-            //Alipay Code
-            clearBill = new clearBill();
-            clearBill.Show();
-
-        }
-        private void Advise_Click(object sender, RoutedEventArgs e)
-        {
-            feedBack = new feedBack();
-            feedBack.Show();
-        }
-
-        private void Programe_Click(object sender, RoutedEventArgs e)
-        {
-            proJect = new project();
-            proJect.Show();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -140,6 +102,49 @@ namespace initView.Properties
             System.Environment.Exit(System.Environment.ExitCode);
         }
 
+        private void ItemEntry_Click(object sender, RoutedEventArgs e)
+        {
+            materialInfo = new MaterialInfo();
+            materialInfo.Show();
+        }
+
+        private void MoneyRecord_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Programe_Click(object sender, RoutedEventArgs e)
+        {
+            proJect = new Project();
+            proJect.Show();
+        }
+
+        private void ClearBill_Click(object sender, RoutedEventArgs e)
+        {
+            int uID = int.Parse(getRecord.Tables[0].Rows[0][0].ToString());
+            string uPayment = "select kc_billStatistics.mID,kc_billStatistics.mNum," +
+                "mPrice,kc_billStatistics.mNum* mPrice as hj,uName from kc_materialInfo," +
+                "kc_billStatistics where kc_materialInfo.mID = kc_billStatistics.mID and uID='" + uID + "'";
+            DataSet billRecord = new DataSet();
+            billRecord = DBTool.ExecuteQuery(uPayment);
+            int count = billRecord.Tables[0].Rows.Count;
+            float mToltal = 0;//付款总计金额
+            //float num = 0;
+            for (int i = 0; i < count; i++)
+            {
+                //num = float.Parse(billRecord.Tables[0].Rows[i][3].ToString());
+                mToltal += float.Parse(billRecord.Tables[0].Rows[i][3].ToString());
+            }
+            Console.WriteLine("mToltal: " + mToltal);
+            string message = MessageBox.Show("总金额为" + mToltal + "请确认!", "操作提示", MessageBoxButton.OKCancel, MessageBoxImage.Information).ToString().Trim();
+            if (message.Equals("Cancel"))
+            {
+                return;
+            }
+            //Alipay Code
+            clearBill = new clearBill();
+            clearBill.Show();
+        }
     }
 
 }

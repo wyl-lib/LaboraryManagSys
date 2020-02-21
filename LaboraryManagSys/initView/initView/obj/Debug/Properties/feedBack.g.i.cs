@@ -84,7 +84,7 @@ namespace initView.Properties {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/initView;component/properties/feedback.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/科技创新实验室;component/properties/feedback.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Properties\feedBack.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

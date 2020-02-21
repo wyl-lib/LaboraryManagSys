@@ -10,7 +10,7 @@
         <Image x:Name="ground" Width="325" Margin="0,-25,0,-167.4" Source="/initView;component/picturePath/earthShuping.jpg" RenderTransformOrigin="0.522,0.526" HorizontalAlignment="Left" />
 
         <TextBox x:Name="uIdTextBox" HorizontalAlignment="Left" Height="30" Margin="80,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Foreground="#FFF45800" MaxLength="10" FontWeight="Bold"/>
-        <PasswordBox x:Name="uPassWordTextBox" HorizontalAlignment="Left"  Height="30" Width="150" Margin="80,90,0,0" VerticalAlignment="Top" Foreground="#FFF45800" MaxLength="16" LostFocus="UPassWordTextBox_LostFocus" FontWeight="Bold" />
+        <PasswordBox x:Name="uPassWordTextBox" HorizontalAlignment="Left"  Height="30" Width="150" Margin="80,90,0,0" VerticalAlignment="Top" Foreground="#FFF45800" MaxLength="16" FontWeight="Bold" />
         <TextBox x:Name="verifyCodeTextBox" Height="30" Margin="80,140,0,0" TextWrapping="Wrap" Foreground="#FFF45800" VerticalAlignment="Top" HorizontalAlignment="Left" Width="103" MaxLength="8" FontWeight="Bold" />
         <Button x:Name="exitButton" Content="完全退出" HorizontalAlignment="Left" Margin="225,350,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Exit_Click" FontSize="10" Background="#FFF45800"/>
         <Label x:Name="pNameL" Content="注册邮箱:" Margin="14,44,244.4,0" VerticalAlignment="Top" Height="26" Foreground="#DDFFFFFF" FontWeight="Bold"/>

@@ -19,7 +19,7 @@ namespace initView
     /// <summary>
     /// project.xaml 的交互逻辑
     /// </summary>
-    public partial class project : Window
+    public partial class Project : Window
     {
         List<string> pMemberList = new List<string>(){
                     "1", "2", "3", "4", "5","6"
@@ -49,7 +49,7 @@ namespace initView
             }
         }
 
-        public project()
+        public Project()
         {
             InitializeComponent();
 

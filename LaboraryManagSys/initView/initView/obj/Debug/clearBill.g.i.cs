@@ -84,7 +84,7 @@ namespace initView {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/initView;component/clearbill.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/科技创新实验室;component/clearbill.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\clearBill.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

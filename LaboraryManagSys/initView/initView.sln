@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "initView", "initView\initView.csproj", "{A1B591FF-014C-4618-931D-ACBC12B55C9C}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{1EF91A62-A802-4FF4-81B0-9D55CA0760D1}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TILIMS2.0", "TILIMS2.0\TILIMS2.0.vdproj", "{9FAB8EA3-1D42-41F2-BC70-F05797E2A037}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{A1B591FF-014C-4618-931D-ACBC12B55C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1B591FF-014C-4618-931D-ACBC12B55C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1B591FF-014C-4618-931D-ACBC12B55C9C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1EF91A62-A802-4FF4-81B0-9D55CA0760D1}.Debug|Any CPU.ActiveCfg = Debug
-		{1EF91A62-A802-4FF4-81B0-9D55CA0760D1}.Release|Any CPU.ActiveCfg = Release
+		{9FAB8EA3-1D42-41F2-BC70-F05797E2A037}.Debug|Any CPU.ActiveCfg = Debug
+		{9FAB8EA3-1D42-41F2-BC70-F05797E2A037}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

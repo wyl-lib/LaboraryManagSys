@@ -12,7 +12,7 @@ namespace initView.Properties
         public int id { get; set; }
         public int uID { get; set; }*/
 
-        public int mID { get; set; }
+        //public int mID { get; set; }
         public string mName { get; set; }
         public string mParam { get; set; }
         public int mNum { get; set; }
