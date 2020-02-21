@@ -28,6 +28,7 @@ namespace initView
     /// </summary>
     public partial class MainWindow : Window
     {
+        static ForgetPass forgetPass;
         static RegisteForm registeFrom;
         static funcSelectForm selectForm;
         
@@ -44,7 +45,11 @@ namespace initView
             verifyImageCode.Source = BitmapFrame.Create(validCode.CreateCheckCodeImage());
             imageCode = validCode.CheckCode.Trim().ToUpper();
         }
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)//鼠标操作，拖动窗口
+
+        /*
+         * 鼠标操作，拖动窗口
+         */
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
 
@@ -77,15 +82,14 @@ namespace initView
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (!DBUtil.IsNumeric(uIdTextBox.Text,10))
+            if (!DBUtil.IsNumeric(uIdTextBox.Text.Trim(), true))
             {
                 return;
             }
-            int uID = int.Parse(uIdTextBox.Text);
+            int uID = int.Parse(uIdTextBox.Text.Trim());
             int uPhone = uID;
             string uName = "";
-            string uPass = uPasstextBox.Password;
+            string uPass = uPasstextBox.Password.Trim();
             string uInfo = "select * from kc_user where uID='" + uID + "'and uPass='" + uPass + "'" +
                 " or uPhone='" + uPhone + "' and uPass='" + uPass + "' ";
 
@@ -107,7 +111,7 @@ namespace initView
 
             try
             {
-                 uName = record.Tables[0].Rows[0][2].ToString();
+                 uName = record.Tables[0].Rows[0][2].ToString().Trim();
             }
             catch
             {
@@ -126,7 +130,11 @@ namespace initView
             Console.WriteLine("inputCode: " + inputCode);
             if (imageCode.Equals(inputCode))
             {
-                Console.WriteLine("record: " + record);
+                string loginDate = DateTime.Now.ToString().Trim();
+                string loginLog = "insert into loginLog values('" + uID + "','" + uName + "','" + loginDate + "')";
+                int fin1 = DBTool.ExecuteUpdate(loginLog);
+                Console.WriteLine("添加个人借用记录数量: " + fin1);
+
                 MessageBox.Show("你好," + uName, "登录成功");
 
                 //隐藏当前窗口
@@ -160,6 +168,7 @@ namespace initView
             this.Close();
             System.Environment.Exit(System.Environment.ExitCode);
         }
+
         private void 注册textBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             //注册功能界面
@@ -179,7 +188,17 @@ namespace initView
 
         private void 忘密textBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //忘记密码界面
+            string userID = uIdTextBox.Text.Trim();
+            if (string.IsNullOrEmpty(userID)|| userID.Equals("输入学号/手机号"))
+            {
+                MessageBox.Show("请先正确输入学号");
+            }
+            else
+            {
+                //忘记密码界面
+                forgetPass = new ForgetPass();
+                forgetPass.Show();
+            }
         }
 
         private void 忘密textBlock_MouseLeave(object sender, MouseEventArgs e)
@@ -219,7 +238,7 @@ namespace initView
         {
             string values = "输入学号/手机号";
 
-            if (values.Equals(uIdTextBox.Text))
+            if (values.Equals(uIdTextBox.Text.Trim()))
             {
                 uIdTextBox.Text = "";
                 return;
@@ -228,7 +247,7 @@ namespace initView
 
         private void UIdTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (uIdTextBox.Text.Equals(""))
+            if (uIdTextBox.Text.Trim().Equals(""))
             {
                 uIdTextBox.Text = "输入学号/手机号";
                 return;

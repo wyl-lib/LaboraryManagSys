@@ -28,6 +28,27 @@ namespace initView
             "报名","省优秀奖","省三等奖","省二等奖","省一等奖",
             "国家一等奖","国家二等奖","国家三等奖","国家特等奖"
         };
+
+        /*
+       * 鼠标操作，拖动窗口
+       */
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+
+            // 获取鼠标相对标题栏位置
+            System.Windows.Point position = e.GetPosition(ProjectInfo);
+
+            // 如果鼠标位置在标题栏内，允许拖动
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                if (position.X >= 0 && position.X < ProjectInfo.ActualWidth && position.Y >= 0 && position.Y < ProjectInfo.ActualHeight)
+                {
+                    this.DragMove();
+                }
+            }
+        }
+
         public project()
         {
             InitializeComponent();

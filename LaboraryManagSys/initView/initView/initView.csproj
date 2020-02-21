@@ -114,6 +114,9 @@
     <Compile Include="project.xaml.cs">
       <DependentUpon>project.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\ForgetPass.xaml.cs">
+      <DependentUpon>ForgetPass.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\ValidCode.cs" />
     <Page Include="clearBill.xaml">
       <SubType>Designer</SubType>
@@ -132,6 +135,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="project.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Properties\ForgetPass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -262,6 +269,19 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="picturePath\MainGround1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picturePath\earthShuping.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picturePath\MainGround0.jpg" />
+    <Resource Include="picturePath\MainGround2.jpg" />
+    <Resource Include="picturePath\MainGround3.jpg" />
+    <Resource Include="picturePath\MainGround4.jpg" />
+    <Resource Include="picturePath\MainGround5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="picturePath\earthHengping.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

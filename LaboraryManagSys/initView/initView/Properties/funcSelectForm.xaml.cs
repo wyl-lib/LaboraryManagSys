@@ -28,6 +28,27 @@ namespace initView.Properties
         static project proJect;
         public static DataSet getRecord { get; set; }
         ObservableCollection<kc_billStatistics> userBorrowList = new ObservableCollection<kc_billStatistics>();
+
+        /*
+         * 鼠标操作，拖动窗口
+         */
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)//鼠标操作，拖动窗口
+        {
+            base.OnMouseLeftButtonDown(e);
+
+            // 获取鼠标相对标题栏位置
+            System.Windows.Point position = e.GetPosition(funSelect);
+
+            // 如果鼠标位置在标题栏内，允许拖动
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                if (position.X >= 0 && position.X < funSelect.ActualWidth && position.Y >= 0 && position.Y < funSelect.ActualHeight)
+                {
+                    this.DragMove();
+                }
+            }
+        }
+
         public funcSelectForm()
         {
             InitializeComponent();
@@ -39,6 +60,7 @@ namespace initView.Properties
             borrowForm = new borrowForm();
             borrowForm.Show();
         }
+
         public void LodaDate(object sender, RoutedEventArgs e)
         {
             int uID = int.Parse(getRecord.Tables[0].Rows[0][0].ToString());

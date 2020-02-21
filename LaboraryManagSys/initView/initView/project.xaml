@@ -5,42 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:initView"
         mc:Ignorable="d"
-        Title="项目信息录入" Height="450" Width="800">
-    <Grid>
+        Title="项目信息录入" Height="410" Width="643.2" AllowsTransparency="True" WindowStyle="None" >
+    <Grid Name="ProjectInfo" Margin="0,0,-157.2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="70*"/>
-            <ColumnDefinition Width="205*"/>
-            <ColumnDefinition Width="45*"/>
-            <ColumnDefinition Width="190*"/>
-            <ColumnDefinition Width="283*"/>
+            <ColumnDefinition Width="207*"/>
+            <ColumnDefinition Width="46*"/>
+            <ColumnDefinition Width="192*"/>
+            <ColumnDefinition Width="285.6"/>
         </Grid.ColumnDefinitions>
 
-        <Label x:Name="pNameL" Content="项目名称" Margin="1.6,80,135.2,0" VerticalAlignment="Top" Grid.Column="1" Height="26"/>
-        <TextBox x:Name="TextBox_pName" Grid.Column="1" Height="23" Margin="89.6,80,0.2,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Image x:Name="ground" Margin="-35,-80,158.8,-65.4" Source="/initView;component/picturePath/earthHengping.jpg" RenderTransformOrigin="0.522,0.526" Grid.ColumnSpan="5" />
 
-        <Label x:Name="pTypeL" Content="大赛名称：" Margin="1.6,119,135.2,0" VerticalAlignment="Top" Height="26" Grid.Column="1"/>
-        <TextBox x:Name="TextBox_pType" Grid.Column="1" Height="23" Margin="89.6,120,0.2,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label x:Name="pNameL" Content="项目名称:" Margin="1.6,80,135.2,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Foreground="#DDFFFFFF" FontWeight="Bold"/>
+        <TextBox x:Name="TextBox_pName" Grid.Column="1" Height="25" Margin="89.6,80,0.2,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFF57354" FontWeight="Bold"/>
 
-        <Label x:Name="ptNameL" Content="*队伍名称：" Margin="1.6,160,135.2,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.412,0.954" Grid.Column="1"/>
-        <TextBox x:Name="TextBox_ptName" Grid.Column="1" Height="23" Margin="89.6,160,0.2,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label x:Name="pTypeL" Content="大赛名称：" Margin="1.6,119,135.2,0" VerticalAlignment="Top" Height="26" Grid.Column="1" Foreground="#DDFFFFFF" FontWeight="Bold"/>
+        <TextBox x:Name="TextBox_pType" Grid.Column="1" Height="25" Margin="89.6,120,0.2,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFF57354" FontWeight="Bold"/>
 
-        <Label x:Name="Lpricipal" Content="团队负责人：" Margin="1.6,199,125.2,0" VerticalAlignment="Top" Height="26" Grid.Column="1"/>
-        <TextBox x:Name="TextBox_pricipal" Grid.Column="1" Height="23" Margin="89.6,200,0.2,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label x:Name="ptNameL" Content="*队伍名称：" Margin="1.6,160,135.2,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.412,0.954" Grid.Column="1" Foreground="#DDFFFFFF" FontWeight="Bold"/>
+        <TextBox x:Name="TextBox_ptName" Grid.Column="1" Height="25" Margin="89.6,160,0.2,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFF57354" FontWeight="Bold"/>
 
-        <Label x:Name="pOthersL" Content="团队其他成员：" Margin="1.6,239,115.2,0" VerticalAlignment="Top" Height="26" Grid.Column="1"/>
-        <TextBox x:Name="TextBox_pOthers" Grid.Column="1" Height="55" Margin="89.6,240,0.2,0" TextWrapping="Wrap" Text="姓名之间用顿号分隔  ( 、)" VerticalAlignment="Top" GotFocus="TextBox_pOthers_GotFocus"/>
+        <Label x:Name="Lpricipal" Content="团队负责人：" Margin="1.6,199,125.2,0" VerticalAlignment="Top" Height="26" Grid.Column="1" Foreground="#DDFFFFFF" FontWeight="Bold"/>
+        <TextBox x:Name="TextBox_pricipal" Grid.Column="1" Height="25" Margin="89.6,200,0.2,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFF57354" FontWeight="Bold"/>
 
-        <Label x:Name="pMemberL" Content="团队人数：" Grid.Column="3" HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" Height="26" Width="70"/>
-        <ComboBox x:Name="ComBox_pMember" Grid.Column="3" Margin="80,80,0.4,0" VerticalAlignment="Top" Height="21"/>
+        <Label x:Name="pOthersL" Content="团队其他成员：" Margin="1.6,239,115.2,0" VerticalAlignment="Top" Height="26" Grid.Column="1" Foreground="#DDFFFFFF" FontWeight="Bold"/>
+        <TextBox x:Name="TextBox_pOthers" Grid.Column="1" Height="55" Margin="89.6,240,0.2,0" TextWrapping="Wrap" Text="姓名之间用顿号分隔  ( 、)" VerticalAlignment="Top" GotFocus="TextBox_pOthers_GotFocus" Foreground="#FFF57354" FontWeight="Bold"/>
 
-        <Label x:Name="pDegreeL" Content="项目状态：" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Height="26" Width="68" Grid.Column="3"/>
-        <ComboBox x:Name="ComBox_pDegree" Grid.Column="3" Margin="80,119,0.4,0" VerticalAlignment="Top" Height="21"/>
+        <Label x:Name="pMemberL" Content="团队人数：" Grid.Column="3" HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" Height="26" Width="70" Foreground="#DDFFFFFF" FontWeight="Bold"/>
+        <ComboBox x:Name="ComBox_pMember" Grid.Column="3" Margin="80,80,0.4,0" VerticalAlignment="Top" Height="25" Foreground="#FFF57354" FontWeight="Bold"/>
 
-        <Label x:Name="pRemarkL" Content="*项目备注：" Grid.Column="3" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" Height="25" Width="70"/>
-        <TextBox x:Name="TextBox_pRemark" Grid.Column="3" Height="60" Margin="80,160,0.4,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label x:Name="pDegreeL" Content="项目状态：" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Height="26" Width="68" Grid.Column="3" Foreground="#DDFFFFFF" FontWeight="Bold"/>
+        <ComboBox x:Name="ComBox_pDegree" Grid.Column="3" Margin="80,119,0.4,0" VerticalAlignment="Top" Height="25" Foreground="#FFF57354" FontWeight="Bold"/>
 
-        <Button x:Name="submitProject" Content="提交项目" Grid.Column="3" HorizontalAlignment="Left" Margin="0,281,0,0" VerticalAlignment="Top" Width="75" Click="SubmitProject_Click"/>
-        <Button x:Name="exitButton" Content="取消/退出" Grid.Column="3" HorizontalAlignment="Left" Margin="110,280,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label x:Name="pRemarkL" Content="*项目备注：" Grid.Column="3" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" Height="25" Width="70" Foreground="#DDFFFFFF" FontWeight="Bold"/>
+        <TextBox x:Name="TextBox_pRemark" Grid.Column="3" Height="60" Margin="80,160,0.4,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFF57354" FontWeight="Bold"/>
+
+        <Button x:Name="submitProject" Content="提交项目" Grid.Column="3" HorizontalAlignment="Left" Margin="1.8,335,0,0" VerticalAlignment="Top" Width="80" Click="SubmitProject_Click" FontSize="12" Background="#FF272545"/>
+        <Button x:Name="exitButton" Content="取消/退出" Grid.Column="3" HorizontalAlignment="Left" Margin="101.8,335,0,0" VerticalAlignment="Top" Width="85" Click="Button_Click" FontSize="12" Background="#FF272545"/>
 
     </Grid>
 </Window>

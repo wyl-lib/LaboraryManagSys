@@ -41,7 +41,7 @@ namespace initView.Properties
             uMesg += getRecord.Tables[0].Rows[0][3].ToString().Trim() + " 、 ";//uProClass
             uMesg += getRecord.Tables[0].Rows[0][7].ToString().Trim();//uEmail
             string MessageSubject = "科创实验室管理系统_用户反馈信息";
-            DBUtil.btnEmailCode_Click(mailTo, uMesg, MessageSubject);
+            DBUtil.BtnEmailCode_Click(mailTo, uMesg, MessageSubject);
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

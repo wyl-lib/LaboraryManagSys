@@ -19,9 +19,41 @@ namespace initView
     /// </summary>
     public partial class clearBill : Window
     {
+        /*
+         * 鼠标操作，拖动窗口
+         */
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+
+            // 获取鼠标相对标题栏位置
+            System.Windows.Point position = e.GetPosition(clearPayment);
+
+            // 如果鼠标位置在标题栏内，允许拖动
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                if (position.X >= 0 && position.X < clearPayment.ActualWidth && position.Y >= 0 && position.Y < clearPayment.ActualHeight)
+                {
+                    this.DragMove();
+                }
+            }
+        }
+
         public clearBill()
         {
             InitializeComponent();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            string message = MessageBox.Show("请再次确认!", "操作提示", MessageBoxButton.OKCancel, MessageBoxImage.Information).ToString().Trim();
+            if (message.Equals("Cancel"))
+            {
+                return;
+            }
+            //完全退出
+            this.Close();
+            System.Environment.Exit(System.Environment.ExitCode);
         }
     }
 }

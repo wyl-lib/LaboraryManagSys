@@ -23,6 +23,27 @@ namespace initView.Properties
     public partial class borrowForm : Window
     {
         public static DataSet getRecord { get; set; }
+
+        /*
+        * 鼠标操作，拖动窗口
+        */
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+
+            // 获取鼠标相对标题栏位置
+            System.Windows.Point position = e.GetPosition(BorrowInfo);
+
+            // 如果鼠标位置在标题栏内，允许拖动
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                if (position.X >= 0 && position.X < BorrowInfo.ActualWidth && position.Y >= 0 && position.Y < BorrowInfo.ActualHeight)
+                {
+                    this.DragMove();
+                }
+            }
+        }
+
         public borrowForm()
         {
             List<string> mName_Bill = new List<string>();
@@ -104,6 +125,8 @@ namespace initView.Properties
             comBox_mName.ItemsSource = List_mName;
             comBox_mNum.ItemsSource = mNum;
         }
+
+
         private void borrowMaterial_Click(object sender, RoutedEventArgs e)
         {            
             //通用信息;库存数量不管充不充足都通用的
@@ -159,7 +182,7 @@ namespace initView.Properties
                     uMesg += getRecord.Tables[0].Rows[0][3].ToString().Trim() + " 、 ";//uProClass
                     uMesg += getRecord.Tables[0].Rows[0][7].ToString().Trim() + "    FeedBack End!!      ";//uEmail
                     string MessageSubject = "科创信息管理系统_物品库存不足提醒";
-                    DBUtil.btnEmailCode_Click(mailTo, uMesg, MessageSubject);
+                    DBUtil.BtnEmailCode_Click(mailTo, uMesg, MessageSubject);
                 }
                 catch
                 {

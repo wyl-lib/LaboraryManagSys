@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:initView"
         mc:Ignorable="d"
-        Title="clearBill" Height="450" Width="608.2">
-    <Grid Margin="0,0,73.6,-1">
-        <Image x:Name="Ali_QRCode"  Source="/initView;component/picturePath/Ali_QRcode.jpg" Stretch="Fill" HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="225" Margin="55,0,0,0"/>
+        Title="clearBill" Height="480" Width="280" AllowsTransparency="True" WindowStyle="None">
+    <Grid Name="clearPayment" Margin="-25,5,0,-1.2" HorizontalAlignment="Left" Width="435">
+        <Image x:Name="ground" Width="300" Margin="20,-146,0,1.2" Source="/initView;component/picturePath/lemon.jpg" RenderTransformOrigin="0.522,0.526" HorizontalAlignment="Left" />
+
+        <Image x:Name="Ali_QRCode"  Source="/initView;component/picturePath/Ali_QRcode.jpg" Stretch="Fill" HorizontalAlignment="Left" Height="175" VerticalAlignment="Top" Width="118" Margin="37,30,0,0"/>
+        <Button x:Name="exitButton" Content="完全退出" Margin="230,25,0,0" VerticalAlignment="Top" Height="30" Click="Exit_Click" FontSize="10" Background="#FFF45800" HorizontalAlignment="Left" Width="70"/>
 
     </Grid>
 </Window>

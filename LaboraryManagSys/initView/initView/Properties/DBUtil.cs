@@ -28,7 +28,7 @@ namespace initView.Properties
             public static Bitmap CreateVerifyCode(out string code)              //生成验证码,返回为BitMap类型
             {
                 //建立Bitmap对象，绘图
-                Bitmap bitmap = new Bitmap(200, 60);
+                Bitmap bitmap = new Bitmap(220, 60);
                 Graphics graph = Graphics.FromImage(bitmap);
                 graph.FillRectangle(new SolidBrush(System.Drawing.Color.White), 0, 0, 200, 60);
                 Font font = new Font(System.Drawing.FontFamily.GenericSerif, 48, System.Drawing.FontStyle.Bold, GraphicsUnit.Pixel);
@@ -90,22 +90,20 @@ namespace initView.Properties
             MessageBody : 邮件内容
             MessageSubject : 邮件主题
              */
-        public static void btnEmailCode_Click(string mailTo, string MessageBody, string MessageSubject)
+        public static void BtnEmailCode_Click(string mailTo, string MessageBody, string MessageSubject)
         {
             string mailFrom = "1346788525@qq.com";
             MailAddress MessageFrom = new MailAddress(mailFrom); //发件人邮箱地址
-            string activeCode = Guid.NewGuid().ToString().Substring(0, 6);//生成激活码     
-            Console.WriteLine("生成激活码 activeCode: " + activeCode);
-
             if (Send(mailTo, MessageFrom, MessageSubject, MessageBody))
             {
-                Console.WriteLine("发送邮件成功");
+                MessageBox.Show("发送邮件成功");
             }
             else
             {
-                Console.WriteLine("发送邮件失败");
+                MessageBox.Show("发送邮件失败");
             }
-
+            /*string activeCode = Guid.NewGuid().ToString().Substring(0, 6);//生成激活码     
+            Console.WriteLine("生成激活码 activeCode: " + activeCode);*/
         }
         /*
          * 发送邮件时的配置
@@ -191,11 +189,11 @@ namespace initView.Properties
         /*
          * 检测学号是否合法以及是否重复
          */
-        public static bool IsNumeric(string str,int num)
+        public static bool IsNumeric(string str,bool R_or_L)
         {
             try
             {
-                if (str == null || str.Length != num)
+                if (str == null || str.Length != 10)
                 {
                     MessageBox.Show("学号/手机号输入有误,请检查!");
                     return false;
@@ -223,13 +221,21 @@ namespace initView.Properties
                 MessageBox.Show("系统遇到某个错误码1004,请通知管理员!");
                 return false;
             }
+            //判断登录还是注册
+            if (R_or_L)
+            {
+                return true;
+            }
             //学号是否已被注册
-            DataSet record = new DataSet();
+            DataSet userInfo = new DataSet();
             try
             {
                 int uId = int.Parse(str.ToString().Trim());
-                string uInfo = "select * from kc_user where uID='" + uId + "'";
-                string uName = record.Tables[0].Rows[0][2].ToString();
+                string sqlInfo = "select * from kc_user where uID='" + uId + "'";
+                userInfo = DBTool.ExecuteQuery(sqlInfo);
+                userInfo.Tables[0].Rows[0][2].ToString();
+                MessageBox.Show("该学号已被注册，如有异议请联系管理员!");
+                return false;
             }
             catch
             {
@@ -237,9 +243,8 @@ namespace initView.Properties
             }
             finally
             {
-                record.Dispose();
+                userInfo.Dispose();
             }
-            return true;
         }
         /*
         * 检测身份证号是否合法

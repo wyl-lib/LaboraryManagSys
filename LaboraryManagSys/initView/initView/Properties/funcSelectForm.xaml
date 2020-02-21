@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:initView.Properties"
         mc:Ignorable="d"
-        Title="功能主界面" Height="450" Width="579.2" Loaded="LodaDate">
-    <Grid>
+        Title="功能主界面" Height="450" Width="579.2" Loaded="LodaDate" AllowsTransparency="True" WindowStyle="None">
+    <Grid Name="funSelect">
+        <Image x:Name="ground" Margin="-15,0,-145.8,-0.4" Source="/initView;component/picturePath/MainGround1.jpg" RenderTransformOrigin="0.522,0.526" />
         <Button x:Name="borrowComponent" Content="记账借用" HorizontalAlignment="Left" Margin="50,320,0,0" VerticalAlignment="Top" Width="81" Height="25" Click="borrow_Click" FontSize="12"/>
         <Button x:Name="clearButoon" Content="结算账单" HorizontalAlignment="Left" Margin="165,320,0,0" VerticalAlignment="Top" Width="81" Height="25" Click="ClearBill_Click" FontSize="12"/>
         <Button x:Name="programeButton" Content="项目录入" HorizontalAlignment="Left" Margin="285,320,0,0" VerticalAlignment="Top" Width="79" Height="25" Click="Programe_Click" FontSize="12"/>

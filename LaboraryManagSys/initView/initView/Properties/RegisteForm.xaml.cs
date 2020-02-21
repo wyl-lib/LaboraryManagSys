@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,21 +21,48 @@ namespace initView.Properties
     /// </summary>
     public partial class RegisteForm : Window
     {
-        static Random random = new Random();
+        private static readonly Random random = new Random();
         static string randomCode = random.Next().ToString().Substring(0,6);
+
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)//鼠标操作，拖动窗口
+        {
+            base.OnMouseLeftButtonDown(e);
+
+            // 获取鼠标相对标题栏位置
+            System.Windows.Point position = e.GetPosition(Registed);
+
+            // 如果鼠标位置在标题栏内，允许拖动
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                if (position.X >= 0 && position.X < Registed.ActualWidth && position.Y >= 0 && position.Y < Registed.ActualHeight)
+                {
+                    this.DragMove();
+                }
+            }
+        }
 
         public RegisteForm()
         {            
             InitializeComponent();
         }
 
-        private void registeButton_Click(object sender, RoutedEventArgs e)
+        private void RegisteButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!DBUtil.IsNumeric(uIdTextBox.Text, 10))//uID验证
+            if (!DBUtil.IsNumeric(uIdTextBox.Text, false))//uID验证
             {
                 return;
             }
-            int uID = int.Parse(uIdTextBox.Text);
+            int uID = 2020000000;
+            try
+            {
+                uID = int.Parse(uIdTextBox.Text.Trim());
+            }
+            catch
+            {
+                MessageBox.Show("学号第一位输入错误，请检查!");
+                return;
+            }
+           
             int uIdentityID = 2;//用户身份
             string uName = uNameTextBox.Text.Trim();//用户姓名
             string uProClass = uPassWordTextBox.Password.Trim();//用户专业班级
@@ -43,6 +71,11 @@ namespace initView.Properties
                 return;
             }
             string uPhone = uPhoneTextBox.Text.Trim();
+            if (uPassWordTextBox.Password.Length < 6)
+            {
+                MessageBox.Show("警告: 密码位数小于六位!");
+                return;
+            }
             string uPass = uPassWordTextBox.Password.Trim();                     //现在密码
             string uPassBefore = uPassWordTextBox_Again.Password.Trim();        //曾用密码
             if (!uPass.Equals(uPassBefore))
@@ -63,11 +96,7 @@ namespace initView.Properties
             string uBankCard = uBankCardTextBox.Text.Trim();//uBankCard验证
             string uRegisteTime = DateTime.Now.ToLocalTime().ToString().Trim();// 2008-9-4 0:00:00                
 
-            if (randomCode == verifyCodeTextBox.Text)
-            {
-                MessageBox.Show("验证码验证成功！");
-            }
-            else
+            if (randomCode != verifyCodeTextBox.Text.Trim())
             {
                 MessageBox.Show("验证码验证失败！");
                 return;
@@ -77,39 +106,40 @@ namespace initView.Properties
              *  向数据库中插入用户记录
              */
             string insertUser = "Insert into kc_user values("+uID+","+uIdentityID+",'"+uName+"','"+uProClass+"','"+uPhone+"','"+uPass+"','"+uPassBefore+ "','"+uEmail+"','"+uIdCard+"','"+uBankCard+"','"+uRegisteTime+"')";
-
-            int returnCode = DBTool.ExecuteUpdate(insertUser);
-            if (returnCode>0)
+            try
             {
-                MessageBox.Show("Yes,恭喜注册成功！");
+                int returnCode = DBTool.ExecuteUpdate(insertUser);
+                if (returnCode > 0)
+                {
+                    MessageBox.Show("注册成功，欢迎加入。");
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Error,出现了某些错误导致注册失败！");
+                MessageBox.Show("系统遇到某个错误码1005,请通知管理员!");
             }
-
         }
 
-        private void SendEmail_Click(object sender, RoutedEventArgs e)
+        private void SendEmailBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             //1、校验邮箱非空  2、合法邮箱
-            string mailTo = this.verifyEmailTextBox.Text.Trim();
-            if (string.IsNullOrEmpty(mailTo))
+            if (!DBUtil.IsEmial(verifyEmailTextBox.Text.Trim()))//uEmail验证
             {
-                MessageBox.Show("个人邮箱不能为空!");
+                MessageBox.Show("请确保邮箱的正确性!");
+                return;
             }
+
             else
             {
-                randomCode = random.Next().ToString().Substring(0, 6);
                 //发送验证码到用户邮箱
+                randomCode = random.Next().ToString().Substring(0, 6);
                 Console.WriteLine("随机验证码 randomCode: " + randomCode);
-                string uMesg = randomCode;
+                string mailTo = this.verifyEmailTextBox.Text.Trim();
+                string uMesg = "【济大泉院科技创新实验室】欢迎注册，您本次的验证码为：" + randomCode + "，该验证码5分钟内有效，请勿泄露给其他人！";
                 string MessageSubject = "科创实验室管理系统_随机验证码";
                 try
                 {
-                    DBUtil.btnEmailCode_Click(mailTo, uMesg, MessageSubject);
-
-                    MessageBox.Show("新用户邮箱验证码_发送成功");
+                    DBUtil.BtnEmailCode_Click(mailTo, uMesg, MessageSubject);
                 }
                 catch
                 {
@@ -141,34 +171,6 @@ namespace initView.Properties
             }
         }
 
-        private void SendEmailBlock_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            //1、校验邮箱非空  2、合法邮箱
-            string mailTo = this.verifyEmailTextBox.Text.Trim();
-            if (string.IsNullOrEmpty(mailTo))
-            {
-                MessageBox.Show("请确保邮箱的正确性!");
-            }
-            else
-            {
-                randomCode = random.Next().ToString().Substring(0, 6);
-                //发送验证码到用户邮箱
-                Console.WriteLine("随机验证码 randomCode: " + randomCode);
-                string uMesg = randomCode;
-                string MessageSubject = "科创实验室管理系统_随机验证码";
-                try
-                {
-                    DBUtil.btnEmailCode_Click(mailTo, uMesg, MessageSubject);
-
-                    MessageBox.Show("新用户邮箱验证码_发送成功");
-                }
-                catch
-                {
-                    return;
-                }
-            }
-        }
-
         private void SendEmailBlock_MouseMove(object sender, MouseEventArgs e)
         {
             sendEmailBlock.FontWeight = FontWeights.Bold;
@@ -184,6 +186,15 @@ namespace initView.Properties
         private void UBankCardTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("由于位数较多，请再次确认!!!!");
+        }
+
+        private void UPassWordTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (uPassWordTextBox.Password.Length < 6)
+            {
+                MessageBox.Show("警告: 密码位数小于六位!");
+                return;
+            }
         }
     }
 }
