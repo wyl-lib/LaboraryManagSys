@@ -1,0 +1,17 @@
+C:\Users\jinjie.zhang\Desktop\F2FPay_Demo_DotNet_RSA1\Projects\alipay-sdk-NET20161213174056\bin\Debug\AopSdk.dll
+C:\Users\jinjie.zhang\Desktop\F2FPay_Demo_DotNet_RSA1\Projects\alipay-sdk-NET20161213174056\bin\Debug\AopSdk.pdb
+C:\Users\jinjie.zhang\Desktop\F2FPay_Demo_DotNet_RSA1\Projects\alipay-sdk-NET20161213174056\obj\Debug\AopSdk.dll
+C:\Users\jinjie.zhang\Desktop\F2FPay_Demo_DotNet_RSA1\Projects\alipay-sdk-NET20161213174056\obj\Debug\AopSdk.pdb
+C:\Users\jinjie.zhang\Desktop\F2FPay_Demo_DotNet\Projects\alipay-sdk-NET20161213174056\bin\Debug\AopSdk.dll
+C:\Users\jinjie.zhang\Desktop\F2FPay_Demo_DotNet\Projects\alipay-sdk-NET20161213174056\bin\Debug\AopSdk.pdb
+C:\Users\jinjie.zhang\Desktop\F2FPay_Demo_DotNet\Projects\alipay-sdk-NET20161213174056\obj\Debug\AopSdk.dll
+C:\Users\jinjie.zhang\Desktop\F2FPay_Demo_DotNet\Projects\alipay-sdk-NET20161213174056\obj\Debug\AopSdk.pdb
+C:\Users\jinjie.zhang\Desktop\F2FPay_Demo_DotNet (4)\F2FPay_Demo_DotNet\Projects\alipay-sdk-NET20161213174056\bin\Debug\AopSdk.dll
+C:\Users\jinjie.zhang\Desktop\F2FPay_Demo_DotNet (4)\F2FPay_Demo_DotNet\Projects\alipay-sdk-NET20161213174056\bin\Debug\AopSdk.pdb
+C:\Users\jinjie.zhang\Desktop\F2FPay_Demo_DotNet (4)\F2FPay_Demo_DotNet\Projects\alipay-sdk-NET20161213174056\obj\Debug\AopSdk.dll
+C:\Users\jinjie.zhang\Desktop\F2FPay_Demo_DotNet (4)\F2FPay_Demo_DotNet\Projects\alipay-sdk-NET20161213174056\obj\Debug\AopSdk.pdb
+D:\3Laborary实验室\实验室管理系统\test\F2FPay_Demo_DotNet 2019-08-01\Projects\alipay-sdk-NET20161213174056\bin\Debug\AopSdk.dll
+D:\3Laborary实验室\实验室管理系统\test\F2FPay_Demo_DotNet 2019-08-01\Projects\alipay-sdk-NET20161213174056\bin\Debug\AopSdk.pdb
+D:\3Laborary实验室\实验室管理系统\test\F2FPay_Demo_DotNet 2019-08-01\Projects\alipay-sdk-NET20161213174056\obj\Debug\AopSdk.csproj.CoreCompileInputs.cache
+D:\3Laborary实验室\实验室管理系统\test\F2FPay_Demo_DotNet 2019-08-01\Projects\alipay-sdk-NET20161213174056\obj\Debug\AopSdk.dll
+D:\3Laborary实验室\实验室管理系统\test\F2FPay_Demo_DotNet 2019-08-01\Projects\alipay-sdk-NET20161213174056\obj\Debug\AopSdk.pdb
