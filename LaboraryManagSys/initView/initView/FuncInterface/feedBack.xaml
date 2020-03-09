@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:initView.Properties"
         mc:Ignorable="d"
         Title="匿名反馈" Height="435" Width="310" AllowsTransparency="True" WindowStyle="None">
-    <Grid Margin="0,0,0,1.0">
+    <Grid  x:Name="feedEmail" Margin="0,0,0,1.0">
         <Image x:Name="E_mail_jpg" Margin="0,0,-299.4,0.6" Source="/initView;component/picturePath/E-mail.jpg" Stretch="Fill"/>
         <TextBox x:Name="feedBackTextBox" AcceptsReturn="True" HorizontalAlignment="Left" Height="225" Margin="130,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" VerticalContentAlignment="Top" FontFamily="Yu Gothic UI Light" Foreground="#DDFFFFFF" FontWeight="Bold" FontSize="16">
             <TextBox.Background>

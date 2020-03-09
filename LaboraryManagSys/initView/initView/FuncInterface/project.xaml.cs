@@ -88,7 +88,7 @@ namespace initView
         private void TextBox_pOthers_GotFocus(object sender, RoutedEventArgs e)
         {
             string values = "姓名之间用顿号分隔  ( 、)";
-            if (values.Equals(TextBox_pOthers.Text))
+            if (values.Equals(TextBox_pOthers.Text.Trim()))
             {
                 TextBox_pOthers.Clear();
             }
@@ -156,6 +156,18 @@ namespace initView
             this.Close();
         }
 
+        private void TextBox_pOthers_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string values = "姓名之间用顿号分隔  ( 、)";
+            if (string.IsNullOrEmpty(TextBox_pOthers.Text.Trim()))
+            {
+                TextBox_pOthers.Text=values;
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 
 }

@@ -51,9 +51,8 @@ namespace initView
             {
                 return;
             }
-            //完全退出
+            //关闭当前窗口
             this.Close();
-            System.Environment.Exit(System.Environment.ExitCode);
         }
     }
 }

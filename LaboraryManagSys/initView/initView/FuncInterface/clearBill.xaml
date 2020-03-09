@@ -10,7 +10,7 @@
         <Image x:Name="ground" Width="300" Margin="20,-146,0,1.2" Source="/initView;component/picturePath/lemon.jpg" RenderTransformOrigin="0.522,0.526" HorizontalAlignment="Left" />
 
         <Image x:Name="Ali_QRCode"  Source="/initView;component/picturePath/Ali_QRcode.jpg" Stretch="Fill" HorizontalAlignment="Left" Height="175" VerticalAlignment="Top" Width="118" Margin="37,30,0,0"/>
-        <Button x:Name="exitButton" Content="完全退出" Margin="230,25,0,0" VerticalAlignment="Top" Height="30" Click="Exit_Click" FontSize="10" Background="#FFF45800" HorizontalAlignment="Left" Width="70"/>
+        <Button x:Name="exitButton" Content="取消/退出" Margin="225,25,0,0" VerticalAlignment="Top" Height="30" Click="Exit_Click" FontSize="10" Background="#FFF45800" HorizontalAlignment="Left" Width="75"/>
 
     </Grid>
 </Window>

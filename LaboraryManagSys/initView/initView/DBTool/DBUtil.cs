@@ -187,7 +187,14 @@ namespace initView.Properties
         }
 
         /*
-         * 检测学号是否合法以及是否重复
+         * 功能:
+         *   检测学号是否合法以及是否重复
+         * Param:
+         *   string str:被检测对象
+         *   bool R_or_L:注册还是登陆
+         * return:
+         *   返回true表示通过检测;
+         *   返回false表示遇到错误;
          */
         public static bool IsNumeric(string str,bool R_or_L)
         {

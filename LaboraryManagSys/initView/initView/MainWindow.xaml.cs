@@ -252,7 +252,7 @@ namespace initView
             看不清textBlock.FontWeight = FontWeights.Bold;
         }
 
-        private void UIdTextBox_GotFocus_1(object sender, RoutedEventArgs e)
+        /*private void UIdTextBox_GotFocus_1(object sender, RoutedEventArgs e)
         {
             string values = "输入学号/手机号";
 
@@ -270,6 +270,6 @@ namespace initView
                 uIdTextBox.Text = "输入学号/手机号";
                 return;
             }
-        }
+        }*/
     }
 }

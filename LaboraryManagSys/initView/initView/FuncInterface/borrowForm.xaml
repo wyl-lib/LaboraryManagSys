@@ -28,8 +28,8 @@
         <ComboBox x:Name="comBox_mParam"  HorizontalAlignment="Left" Height="25" Margin="110,130,0,0" VerticalAlignment="Top" Width="110" Foreground="#FFF57354" FontWeight="Bold"/>
 
         <TreeView x:Name="treeView" HorizontalAlignment="Left" Height="254" Margin="310,26,0,0" VerticalAlignment="Top" Width="183" Foreground="#DDFFFFFF" FontWeight="Bold"/>
-        <Button x:Name="borrowMaterial" Content="确认提交" HorizontalAlignment="Left" Margin="127,255,0,0" VerticalAlignment="Top" Width="83" Height="25" Click="borrowMaterial_Click" FontSize="12" Background="#FF272545" />
-        <Button x:Name="exitButton" Content="取消/退出" HorizontalAlignment="Left" Margin="225,255,0,0" VerticalAlignment="Top" Width="85" Height="25" Click="ExitButton_Click" FontSize="12" Background="#FF272545"/>
+        <Button x:Name="borrowMaterial" Content="确认提交" HorizontalAlignment="Left" Margin="122,255,0,0" VerticalAlignment="Top" Width="83" Height="25" Click="borrowMaterial_Click" FontSize="12" Background="#FF272545" />
+        <Button x:Name="exitButton" Content="取消/退出" HorizontalAlignment="Left" Margin="220,255,0,0" VerticalAlignment="Top" Width="85" Height="25" Click="ExitButton_Click" FontSize="12" Background="#FF272545"/>
 
     </Grid>
 </Window>

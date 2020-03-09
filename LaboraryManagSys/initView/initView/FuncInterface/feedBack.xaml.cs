@@ -27,6 +27,26 @@ namespace initView.Properties
             InitializeComponent();
         }
 
+       /*
+       * 鼠标操作，拖动窗口
+       */
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+
+            // 获取鼠标相对标题栏位置
+            System.Windows.Point position = e.GetPosition(feedEmail);
+
+            // 如果鼠标位置在标题栏内，允许拖动
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                if (position.X >= 0 && position.X < feedEmail.ActualWidth && position.Y >= 0 && position.Y < feedEmail.ActualHeight)
+                {
+                    this.DragMove();
+                }
+            }
+        }
+
         private void Send_Click(object sender, RoutedEventArgs e)
         {
             string message = MessageBox.Show("请再次确认!", "操作提示", MessageBoxButton.OKCancel, MessageBoxImage.Information).ToString().Trim();

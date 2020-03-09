@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:initView.Properties"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="功能主界面" Height="450" Width="579.2" Loaded="LodaDate" AllowsTransparency="True" WindowStyle="None">
     <Grid Name="funSelect">
@@ -12,9 +13,11 @@
         <Button x:Name="clearButoon" Content="结算账单" HorizontalAlignment="Left" Margin="165,320,0,0" VerticalAlignment="Top" Width="81" Height="30" Click="ClearBill_Click" FontSize="12"/>
         <Button x:Name="programeButton" Content="项目录入" HorizontalAlignment="Left" Margin="285,320,0,0" VerticalAlignment="Top" Width="79" Height="30" Click="Programe_Click" FontSize="12"/>
 
-        <Button x:Name="adviseButton" Content="反馈" HorizontalAlignment="Left" Margin="476,15,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Advise_Click"/>
+        <Button Style="{DynamicResource MaterialDesignFloatingActionLightButton}" x:Name="adviseButton" HorizontalAlignment="Left" Margin="519,20,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Advise_Click" Background="#FF673AB7">
+            <iconPacks:PackIconModern Kind="Email" Foreground="White"  Width="19" Height="15"/>
+        </Button>
         <Button x:Name="exitButton" Content="完全退出" HorizontalAlignment="Left" Margin="435,385,0,0" VerticalAlignment="Top" Width="80" Height="30" Click="Exit_Click" FontSize="12"/>
-        <DataGrid x:Name="dataGridView" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="195" Margin="36,80,0,0" VerticalAlignment="Top" Width="431"/>
+        <DataGrid x:Name="dataGridView" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="195" Margin="36,80,0,0" VerticalAlignment="Top" Width="424"/>
         <!--
             <DataGrid.Columns>
                 <DataGridTextColumn Header=" 编号" Width="40" Binding="{Binding mID}"/>
@@ -26,6 +29,7 @@
             </DataGrid.Columns>     -->
 
         <Label x:Name="tip" Content="个人借用记录: " HorizontalAlignment="Left" Height="27" Margin="36,31,0,0" VerticalAlignment="Top" Width="124" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="button" Content="设备教学" HorizontalAlignment="Left" Margin="483,123,0,0" VerticalAlignment="Top" Width="96"/>
 
     </Grid>
 </Window>

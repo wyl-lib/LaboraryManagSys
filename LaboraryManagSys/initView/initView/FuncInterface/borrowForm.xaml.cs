@@ -197,7 +197,7 @@ namespace initView.Properties
             List<string> List_mParam = new List<string>();
             //从数据库获取对应信息
             DataSet billRecord = new DataSet();
-            string mName = comBox_mName.Text;
+            string mName = comBox_mName.Text.Trim();
             string billInfo = "select mParam from kc_materialInfo where mName='" + mName + "'";
             billRecord = DBTool.ExecuteQuery(billInfo);
 
