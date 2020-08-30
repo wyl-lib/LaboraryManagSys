@@ -1,0 +1,35 @@
+﻿<Window x:Class="initView.Properties.borrowForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:initView.Properties"
+        mc:Ignorable="d"
+        Title="借用记录登记" Height="336.4" Width="520" AllowsTransparency="True" WindowStyle="None">
+
+    <Grid Name="BorrowInfo" Margin="0,0,-0.4,-0.2">
+        <Image x:Name="E_mail_jpg" Margin="-52,0,-776,-74.4" Source="/initView;component/picturePath/registedGround.jpg" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="1342">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label x:Name="mNameL" Content="物品名称：" HorizontalAlignment="Left" Height="25" Margin="35,39,0,0" VerticalAlignment="Top" Width="65" Foreground="#DDFFFF92" FontWeight="Bold"/>
+        <ComboBox x:Name="comBox_mName" HorizontalAlignment="Left" Margin="110,39,0,0" VerticalAlignment="Top" Width="110" Height="25" LostFocus="ComBox_mName_LostFocus" Foreground="#FFF57354" FontWeight="Bold" />
+
+        <Label x:Name="mNumL" Content="物品数量：" HorizontalAlignment="Left" Height="25" Margin="35,85,0,0" VerticalAlignment="Top" Width="65" Foreground="#DDFDFD7C" FontWeight="Bold" />
+        <ComboBox x:Name="comBox_mNum" HorizontalAlignment="Left" Margin="110,85,0,0" VerticalAlignment="Top" Width="110" Height="25" Foreground="#FFF57354" FontWeight="Bold" />
+
+        <Label x:Name="mParamL" Content="规格、参数：" HorizontalAlignment="Left" Height="25" Margin="25,130,0,0" VerticalAlignment="Top" Width="75" Foreground="#DDFFFF00" FontWeight="Bold"/>
+        <ComboBox x:Name="comBox_mParam"  HorizontalAlignment="Left" Height="25" Margin="110,130,0,0" VerticalAlignment="Top" Width="110" Foreground="#FFF57354" FontWeight="Bold"/>
+
+        <TreeView x:Name="treeView" HorizontalAlignment="Left" Height="254" Margin="310,26,0,0" VerticalAlignment="Top" Width="183" Foreground="#DDFFFFFF" FontWeight="Bold"/>
+        <Button x:Name="borrowMaterial" Content="确认提交" HorizontalAlignment="Left" Margin="122,255,0,0" VerticalAlignment="Top" Width="83" Height="25" Click="borrowMaterial_Click" FontSize="12" Background="#FF272545" />
+        <Button x:Name="exitButton" Content="取消/退出" HorizontalAlignment="Left" Margin="220,255,0,0" VerticalAlignment="Top" Width="85" Height="25" Click="ExitButton_Click" FontSize="12" Background="#FF272545"/>
+
+    </Grid>
+</Window>

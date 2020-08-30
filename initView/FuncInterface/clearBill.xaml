@@ -1,0 +1,16 @@
+﻿<Window x:Class="initView.clearBill"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:initView"
+        mc:Ignorable="d"
+        Title="clearBill" Height="480" Width="280" AllowsTransparency="True" WindowStyle="None">
+    <Grid Name="clearPayment" Margin="-25,5,0,-1.2" HorizontalAlignment="Left" Width="435">
+        <Image x:Name="ground" Width="300" Margin="20,-146,0,1.2" Source="/initView;component/picturePath/lemon.jpg" RenderTransformOrigin="0.522,0.526" HorizontalAlignment="Left" />
+        <Button x:Name="exitButton" Content="取消/退出" Margin="225,25,0,0" VerticalAlignment="Top" Height="30" Click="Exit_Click" FontSize="10" Background="#FFF45800" HorizontalAlignment="Left" Width="75"/>
+        <Image x:Name="QRcodeImg" HorizontalAlignment="Left" Height="100" Margin="50,70,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="payFinished" Content="确认付款" Margin="210,430,0,0" VerticalAlignment="Top" Height="25" FontSize="10" Background="#FFF45800" HorizontalAlignment="Left" Width="75" Click="payFinished_Click"/>
+
+    </Grid>
+</Window>

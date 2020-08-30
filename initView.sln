@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "initView", "initView\initView.csproj", "{A1B591FF-014C-4618-931D-ACBC12B55C9C}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TILIMS2.0", "TILIMS2.0\TILIMS2.0.vdproj", "{9FAB8EA3-1D42-41F2-BC70-F05797E2A037}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F2FPayDll", "..\LaboraryManagSys\initView\F2FPay_Demo_DotNet 2019-08-01\Projects\Alipay-demo-project\F2FPayDll\F2FPayDll.csproj", "{EC6DA18D-0532-4E73-BA69-A575A724C8BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1B591FF-014C-4618-931D-ACBC12B55C9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B591FF-014C-4618-931D-ACBC12B55C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B591FF-014C-4618-931D-ACBC12B55C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B591FF-014C-4618-931D-ACBC12B55C9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FAB8EA3-1D42-41F2-BC70-F05797E2A037}.Debug|Any CPU.ActiveCfg = Debug
+		{9FAB8EA3-1D42-41F2-BC70-F05797E2A037}.Release|Any CPU.ActiveCfg = Release
+		{EC6DA18D-0532-4E73-BA69-A575A724C8BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC6DA18D-0532-4E73-BA69-A575A724C8BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC6DA18D-0532-4E73-BA69-A575A724C8BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC6DA18D-0532-4E73-BA69-A575A724C8BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54D27055-0AB7-4C93-972A-DEDD05EB25D2}
+	EndGlobalSection
+EndGlobal

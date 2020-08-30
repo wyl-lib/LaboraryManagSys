@@ -1,0 +1,16 @@
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\initView.csprojAssemblyReference.cache
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\MainWindow.g.cs
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\Properties\RegisteForm.g.cs
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\Properties\feedBack.g.cs
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\Properties\funcSelectForm.g.cs
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\Properties\borrowForm.g.cs
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\App.g.cs
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\initView_MarkupCompile.cache
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\initView_MarkupCompile.lref
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\MainWindow.baml
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\Properties\RegisteForm.baml
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\Properties\feedBack.baml
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\Properties\funcSelectForm.baml
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\initView.exe
+D:\3Laborary实验室\实验室管理系统\initView\initView\obj\Release\initView.pdb
